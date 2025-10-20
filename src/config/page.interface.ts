@@ -9,6 +9,23 @@ export interface LayoutConfig {
   containerWidth?: "full" | "3/4" | "2/3" | "1/2";
 }
 
+export type ComponentVariant = "default" | "dark" | "light" | "gradient" | "outline";
+
+export type ThemeName = "default" | "ocean" | "sunset" | "forest" | "midnight" | "lavender";
+
+export interface StyleConfig {
+  variant?: ComponentVariant;
+  theme?: ThemeName;
+  customStyles?: {
+    backgroundColor?: string;
+    backgroundImage?: string;
+    textColor?: string;
+    borderColor?: string;
+    accentColor?: string;
+    [key: string]: string | undefined;
+  };
+}
+
 export interface MetaConfig {
   title: string;
   description: string;
@@ -21,6 +38,7 @@ export interface MetaConfig {
 
 export interface HeroConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     title: string;
     subTitle: string;
@@ -42,6 +60,7 @@ export interface HeroConfig {
 
 export interface ServicesConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     title: string;
     services: Array<{
@@ -54,6 +73,7 @@ export interface ServicesConfig {
 
 export interface AdventajesConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     title: string;
     adventajes: Array<{
@@ -68,6 +88,7 @@ export interface AdventajesConfig {
 
 export interface BrandsConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     title: string;
     description: string;
@@ -81,6 +102,7 @@ export interface BrandsConfig {
 
 export interface PricingConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     title: string;
     tiers: Array<{
@@ -99,6 +121,7 @@ export interface PricingConfig {
 
 export interface HeaderConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     logo: string;
     links: Array<{
@@ -110,6 +133,7 @@ export interface HeaderConfig {
 
 export interface FooterConfig {
   layout?: LayoutConfig;
+  style?: StyleConfig;
   content: {
     logo: string;
     description: string;

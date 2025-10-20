@@ -18,8 +18,9 @@ This document lists all available components in the YAML-driven page system. Use
    - [Pricing](#pricing)
    - [Footer](#footer)
 3. [Layout Options](#layout-options)
-4. [Icon Reference](#icon-reference)
-5. [Common Patterns](#common-patterns)
+4. [Style Options (Variants & Themes)](#style-options-variants--themes)
+5. [Icon Reference](#icon-reference)
+6. [Common Patterns](#common-patterns)
 
 ---
 
@@ -498,6 +499,352 @@ layout:
 
 ---
 
+## Style Options (Variants & Themes)
+
+**NEW in v2.0**: Components now support visual variants and color themes for flexible styling directly from YAML.
+
+### Overview
+
+The style system provides two layers of customization:
+
+1. **Variants**: Control the visual style (solid, gradient, outline, etc.)
+2. **Themes**: Control the color palette (ocean, sunset, forest, etc.)
+3. **Custom Styles**: Override specific CSS properties
+
+### Basic Usage
+
+```yaml
+components:
+  - type: "Hero"
+    config:
+      style:                    # Optional: Style configuration
+        variant: "gradient"     # Optional: Visual style variant
+        theme: "ocean"          # Optional: Color theme
+        customStyles:           # Optional: Custom CSS overrides
+          backgroundColor: "#FF5733"
+      content:
+        # ... component content
+```
+
+### Available Variants
+
+Variants control the overall visual presentation of a component:
+
+#### `default`
+Standard solid background with default styling
+- Solid white background
+- Dark text on light background
+- Standard buttons and cards
+- **Best for**: General content sections
+
+```yaml
+style:
+  variant: "default"
+```
+
+#### `dark`
+Dark background with light text for contrast
+- Dark gray/black background
+- Light text for readability
+- Inverted button styles
+- **Best for**: Contrast sections, footer areas
+
+```yaml
+style:
+  variant: "dark"
+```
+
+#### `light`
+Light, airy background with subtle styling
+- Very light gray background
+- Subtle borders and shadows
+- Minimal visual weight
+- **Best for**: Secondary sections, testimonials
+
+```yaml
+style:
+  variant: "light"
+```
+
+#### `gradient`
+Vibrant gradient background (uses theme colors)
+- Colorful gradient background
+- White text for contrast
+- Glass-morphism card effects
+- **Best for**: Hero sections, call-to-action areas
+
+```yaml
+style:
+  variant: "gradient"
+  theme: "ocean"  # Gradient uses theme colors
+```
+
+#### `outline`
+Transparent background with outlined elements
+- Transparent/minimal background
+- Outlined buttons and cards
+- Border-focused design
+- **Best for**: Overlay sections, minimalist designs
+
+```yaml
+style:
+  variant: "outline"
+```
+
+### Available Themes
+
+Themes provide pre-configured color palettes that work across all components:
+
+#### `default`
+Clean, professional palette
+- Background: White (#FFFFFF)
+- Text: Dark gray (#161925)
+- Accent: Blue (#1D4ED8)
+- **Best for**: Professional sites, B2B
+
+```yaml
+style:
+  theme: "default"
+```
+
+#### `ocean`
+Cool blue oceanic colors
+- Background: Deep blue (#0C4A6E)
+- Gradient: Blue to lighter blue
+- Accent: Bright cyan (#38BDF8)
+- **Best for**: Tech products, SaaS
+
+```yaml
+style:
+  theme: "ocean"
+  variant: "gradient"  # Shows beautiful blue gradient
+```
+
+#### `sunset`
+Warm orange and red tones
+- Background: Deep orange (#7C2D12)
+- Gradient: Orange to red to amber
+- Accent: Orange (#FB923C)
+- **Best for**: Creative agencies, lifestyle brands
+
+```yaml
+style:
+  theme: "sunset"
+  variant: "gradient"  # Shows sunset gradient effect
+```
+
+#### `forest`
+Natural green tones
+- Background: Deep green (#14532D)
+- Gradient: Dark to lighter green
+- Accent: Bright green (#4ADE80)
+- **Best for**: Environmental, health, organic brands
+
+```yaml
+style:
+  theme: "forest"
+```
+
+#### `midnight`
+Deep purple night sky
+- Background: Deep purple (#1E1B4B)
+- Gradient: Dark purple to lighter purple
+- Accent: Lavender (#A78BFA)
+- **Best for**: Luxury brands, creative portfolios
+
+```yaml
+style:
+  theme: "midnight"
+  variant: "gradient"
+```
+
+#### `lavender`
+Soft purple light theme
+- Background: Very light purple (#F5F3FF)
+- Light, pastel aesthetic
+- Accent: Purple (#9333EA)
+- **Best for**: Wellness, beauty, feminine brands
+
+```yaml
+style:
+  theme: "lavender"
+```
+
+### Custom Styles
+
+Override specific CSS properties for fine-tuned control:
+
+```yaml
+style:
+  variant: "default"
+  customStyles:
+    backgroundColor: "#FF5733"        # Custom background color
+    backgroundImage: "url(/bg.jpg)"   # Background image
+    textColor: "#FFFFFF"              # Text color
+    borderColor: "#FF5733"            # Border color
+    accentColor: "#FFA500"            # Accent/highlight color
+```
+
+**Available Custom Properties:**
+- `backgroundColor` - Background color
+- `backgroundImage` - Background image URL or gradient
+- `textColor` - Main text color
+- `borderColor` - Border color for cards/elements
+- `accentColor` - Accent color for highlights/buttons
+
+### Combining Variants and Themes
+
+Variants and themes work together to create unique looks:
+
+```yaml
+# Professional hero with ocean gradient
+- type: "Hero"
+  config:
+    style:
+      variant: "gradient"
+      theme: "ocean"
+    content:
+      title: "Welcome"
+
+# Dark services section with forest theme
+- type: "Services"
+  config:
+    style:
+      variant: "dark"
+      theme: "forest"
+    content:
+      title: "Our Services"
+
+# Light pricing with custom accent
+- type: "Pricing"
+  config:
+    style:
+      variant: "light"
+      theme: "default"
+      customStyles:
+        accentColor: "#FF6B6B"
+    content:
+      title: "Pricing"
+```
+
+### Real-World Examples
+
+#### Example 1: Modern SaaS Landing Page
+
+```yaml
+components:
+  - type: "Hero"
+    config:
+      style:
+        variant: "gradient"
+        theme: "ocean"
+      content:
+        title: "Transform Your Workflow"
+
+  - type: "Services"
+    config:
+      style:
+        variant: "light"
+      content:
+        title: "Features"
+
+  - type: "Pricing"
+    config:
+      style:
+        variant: "default"
+        theme: "ocean"
+      content:
+        title: "Simple Pricing"
+```
+
+#### Example 2: Creative Agency Site
+
+```yaml
+components:
+  - type: "Hero"
+    config:
+      style:
+        variant: "gradient"
+        theme: "sunset"
+      content:
+        title: "Creative Excellence"
+
+  - type: "Services"
+    config:
+      style:
+        variant: "outline"
+      content:
+        title: "What We Do"
+
+  - type: "Adventajes"
+    config:
+      style:
+        variant: "dark"
+        theme: "midnight"
+      content:
+        title: "Why Choose Us"
+```
+
+#### Example 3: Organic Products Brand
+
+```yaml
+components:
+  - type: "Hero"
+    config:
+      style:
+        variant: "gradient"
+        theme: "forest"
+      content:
+        title: "Pure & Natural"
+
+  - type: "Services"
+    config:
+      style:
+        variant: "light"
+        theme: "forest"
+      content:
+        title: "Our Products"
+```
+
+### Styling Best Practices
+
+1. **Consistency**: Use 2-3 themes max per page for visual coherence
+2. **Contrast**: Alternate between light and dark variants for visual rhythm
+3. **Hero Impact**: Use gradient variant with themes for hero sections
+4. **Accessibility**: Ensure sufficient color contrast for readability
+5. **Brand Colors**: Use customStyles to match your brand palette
+6. **Mobile Testing**: Always test styles on mobile devices
+
+### Component-Specific Notes
+
+#### Hero Component
+- Supports all variants and themes
+- Gradient variant is particularly effective
+- CTA buttons automatically adapt to theme colors
+
+#### Services Component
+- Light and default variants work best
+- Icons automatically use theme accent colors
+- Cards adapt to variant styling
+
+#### Pricing Component
+- All variants supported
+- Card backgrounds use theme colors
+- CTA buttons use accent colors from theme
+
+### Troubleshooting
+
+**Issue**: Theme colors not applying
+- **Solution**: Ensure `style` is under `config`, not `content`
+
+**Issue**: Variant classes not visible
+- **Solution**: Run `pnpm build` to verify no TypeScript errors
+
+**Issue**: Custom styles not working
+- **Solution**: Use camelCase for property names (backgroundColor, not background-color)
+
+---
+
 ## Icon Reference
 
 ### Available Icons
@@ -663,3 +1010,5 @@ components:
 **Last Updated**: 2025-10-20
 **Components**: 7 total
 **Icons**: 15 available
+**Variants**: 5 available (default, dark, light, gradient, outline)
+**Themes**: 6 available (default, ocean, sunset, forest, midnight, lavender)

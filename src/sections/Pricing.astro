@@ -12,7 +12,7 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section class="mt-48">
+<section class="pricing-section mt-48">
   <SectionTitle>
     {data.title}
   </SectionTitle>
@@ -23,14 +23,14 @@ const { data } = Astro.props;
       data.tiers.map((tier) => (
         <Card>
           <header class="flex flex-col justify-center gap-y-3">
-            <h3 class="text-4xl text-center font-semibold">{tier.title}</h3>
-            <p class="text-xl text-center opacity-90">{tier.description}</p>
+            <h3 class="pricing-tier-title text-4xl text-center font-semibold">{tier.title}</h3>
+            <p class="pricing-tier-description text-xl text-center opacity-90">{tier.description}</p>
           </header>
           <section class="flex justify-center">
-            <h4 class="text-6xl font-semibold">
+            <h4 class="pricing-amount text-6xl font-semibold">
               {tier.price.amount}
               {tier.price.period && (
-                <span class="font-normal text-xl opacity-85">
+                <span class="pricing-period font-normal text-xl opacity-85">
                   {tier.price.period}
                 </span>
               )}
@@ -39,9 +39,9 @@ const { data } = Astro.props;
           <section class="flex justify-start">
             <ul class="flex flex-col gap-y-4 text-lg">
               {tier.features.map((feature) => (
-                <li class="flex flex-row px-7 gap-x-1">
+                <li class="pricing-feature flex flex-row px-7 gap-x-1">
                   <span>
-                    <Icon class="w-6 h-auto text-primary" icon="CheckIcon" />
+                    <Icon class="w-6 h-auto pricing-check-icon text-primary" icon="CheckIcon" />
                   </span>
                   <p class="text-center">{feature}</p>
                 </li>
@@ -51,7 +51,7 @@ const { data } = Astro.props;
           <footer class="flex justify-center">
             <Action
               as="a"
-              class="bg-primary text-white w-72"
+              class="pricing-cta bg-primary text-white w-72"
               type="button"
               href={tier.ctaHref || "#"}
             >
@@ -63,3 +63,43 @@ const { data } = Astro.props;
     }
   </div>
 </section>
+
+<style>
+  /* Theme-aware styling using CSS custom properties */
+  .pricing-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .pricing-tier-title {
+    color: var(--theme-text, inherit);
+  }
+
+  .pricing-tier-description {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .pricing-amount {
+    color: var(--theme-text, inherit);
+  }
+
+  .pricing-period {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .pricing-feature {
+    color: var(--theme-text, inherit);
+  }
+
+  .pricing-check-icon {
+    color: var(--theme-accent, #1D4ED8);
+  }
+
+  .pricing-cta {
+    background-color: var(--theme-accent, #1D4ED8);
+    color: var(--theme-bg, #FFFFFF);
+  }
+
+  .pricing-cta:hover {
+    background-color: var(--theme-accent-hover, #1E40AF);
+  }
+</style>

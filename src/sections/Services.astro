@@ -14,24 +14,24 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="services-section" class="flex flex-col mb-60 gap-y-28">
+<section id="services-section" class="services-section flex flex-col mb-60 gap-y-28">
   <SectionTitle>
     {data.title}
   </SectionTitle>
   <div class="grid md:grid-cols-2 gap-y-10 justify-items-center">
     {
       data.services.map((service) => (
-        <article class="flex gap-x-6 md:gap-x-12 md:w-[550px]">
+        <article class="service-card flex gap-x-6 md:gap-x-12 md:w-[550px]">
           <div>
             <IconWrapper>
               <Icon icon={service.icon as IconType} />
             </IconWrapper>
           </div>
           <section>
-            <h3 class="text-xl font-medium md:text-4xl mb-3">
+            <h3 class="service-title text-xl font-medium md:text-4xl mb-3">
               {service.title}
             </h3>
-            <p class="text-pretty opacity-90 md:text-lg">
+            <p class="service-description text-pretty opacity-90 md:text-lg">
               {service.description}
             </p>
           </section>
@@ -40,3 +40,22 @@ const { data } = Astro.props;
     }
   </div>
 </section>
+
+<style>
+  /* Theme-aware styling using CSS custom properties */
+  .services-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .service-card {
+    color: var(--theme-text, inherit);
+  }
+
+  .service-title {
+    color: var(--theme-text, inherit);
+  }
+
+  .service-description {
+    color: var(--theme-text-secondary, inherit);
+  }
+</style>

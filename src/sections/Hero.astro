@@ -26,20 +26,20 @@ const showScroll = data.showScrollButton ?? true;
 const scrollTarget = data.scrollTarget || "#services-section";
 ---
 
-<section id="hero-section" class="flex justify-center mt-48 h-screen">
+<section id="hero-section" class="hero-section flex justify-center mt-48 h-screen">
   <div class="md:w-1/2">
-    <h1 class="text-4xl text-center font-semibold md:text-6xl">
+    <h1 class="hero-title text-4xl text-center font-semibold md:text-6xl">
       {data.title}
-      <span class="text-primary"> {data.highlightedTitle} </span>
+      <span class="hero-highlight text-primary"> {data.highlightedTitle} </span>
     </h1>
-    <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
+    <h2 class="hero-subtitle mt-10 text-lg text-center opacity-80 md:text-2xl">
       {data.subTitle}
     </h2>
     <div class="flex justify-evenly mt-10">
       <Action
         as="a"
         type="button"
-        class="bg-black text-white"
+        class="hero-cta-primary bg-black text-white"
         href={data.primaryCta.href}
         target={data.primaryCta.target}
       >
@@ -47,7 +47,7 @@ const scrollTarget = data.scrollTarget || "#services-section";
       </Action>
       <Action
         as="a"
-        class="bg-transparent text-black border border-black"
+        class="hero-cta-secondary bg-transparent text-black border border-black"
         type="button"
         href={data.secondaryCta.href}
         target={data.secondaryCta.target}
@@ -95,5 +95,43 @@ const scrollTarget = data.scrollTarget || "#services-section";
   #hero-section {
     opacity: 0;
     animation: fadeIn 0.8s ease-in-out forwards;
+  }
+
+  /* Theme-aware styling using CSS custom properties */
+  .hero-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .hero-title {
+    color: var(--theme-text, inherit);
+  }
+
+  .hero-subtitle {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .hero-highlight {
+    color: var(--theme-accent, #1D4ED8);
+  }
+
+  /* Theme-aware CTA buttons */
+  .hero-cta-primary {
+    background-color: var(--theme-accent, #161925);
+    color: var(--theme-bg, #FFFFFF);
+  }
+
+  .hero-cta-primary:hover {
+    background-color: var(--theme-accent-hover, #1E40AF);
+  }
+
+  .hero-cta-secondary {
+    background-color: transparent;
+    color: var(--theme-text, #161925);
+    border-color: var(--theme-border, #161925);
+  }
+
+  .hero-cta-secondary:hover {
+    background-color: var(--theme-text, #161925);
+    color: var(--theme-bg, #FFFFFF);
   }
 </style>
