@@ -1,0 +1,78 @@
+# Shared Theme Configuration
+# This file controls the styling for all components across the entire site
+# Change these values once to update the theme globally
+
+# Global default theme settings
+# Available themes: default, ocean, sunset, forest, midnight, lavender
+# Available variants: default, dark, light, gradient, outline
+
+global:
+  defaultTheme: "default"
+  defaultVariant: "default"
+
+# Component-specific theme overrides
+# Uncomment and modify to apply specific themes to component types
+componentThemes:
+  # Hero sections - typically use gradient variants for visual impact
+  Hero:
+    variant: "default"
+    theme: "default"
+
+  # Call-to-action components - use gradients to draw attention
+  CallToAction:
+    variant: "default"
+    theme: "default"
+
+  # Newsletter components - subtle styling
+  Newsletter:
+    variant: "default"
+    theme: "default"
+
+  # Stats sections - can use light variant for contrast
+  Stats:
+    variant: "default"
+    theme: "default"
+
+  # Logo cloud sections
+  LogoCloud:
+    variant: "default"
+    theme: "default"
+
+# Alternative theme presets (uncomment one to activate)
+# You can switch between these presets by commenting/uncommenting
+
+# Preset: Vibrant (colorful gradients throughout)
+# componentThemes:
+#   Hero:
+#     variant: "gradient"
+#     theme: "ocean"
+#   CallToAction:
+#     variant: "gradient"
+#     theme: "sunset"
+#   Newsletter:
+#     variant: "gradient"
+#     theme: "midnight"
+
+# Preset: Minimal (clean, no gradients)
+# componentThemes:
+#   Hero:
+#     variant: "default"
+#     theme: "default"
+#   CallToAction:
+#     variant: "outline"
+#     theme: "default"
+#   Newsletter:
+#     variant: "light"
+#     theme: "default"
+
+# Preset: Professional (subtle gradients)
+# componentThemes:
+#   Hero:
+#     variant: "gradient"
+#     theme: "midnight"
+#   CallToAction:
+#     variant: "gradient"
+#     theme: "ocean"
+#   Newsletter:
+#     variant: "gradient"
+#     theme: "forest"

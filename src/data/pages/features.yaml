@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "ocean"
       content:
         title: "Powerful Features,"
         highlightedTitle: "Simple Interface"
@@ -277,9 +274,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "midnight"
       content:
         tagline: "Ready to Experience It?"
         title: "Start Building Today"

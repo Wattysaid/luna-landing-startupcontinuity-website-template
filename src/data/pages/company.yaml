@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "forest"
       content:
         title: "Meet"
         highlightedTitle: "Luna Landing"
@@ -197,9 +194,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "sunset"
       content:
         tagline: "Join Our Team"
         title: "Help Us Build the Future"

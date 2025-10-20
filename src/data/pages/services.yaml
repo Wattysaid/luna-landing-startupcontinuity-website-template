@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "forest"
       content:
         title: "Services That"
         highlightedTitle: "Deliver Results"
@@ -223,9 +220,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "midnight"
       content:
         tagline: "Ready to Get Started?"
         title: "Let's Build Something Great Together"

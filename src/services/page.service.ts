@@ -8,8 +8,24 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import yaml from "js-yaml";
-import type { PageData } from "@/config/page.interface";
+import type { PageData, ComponentVariant, ThemeName } from "@/config/page.interface";
 import { isValidComponentType } from "@/config/component-registry";
+
+/**
+ * Theme configuration structure
+ */
+interface ThemeConfig {
+  global?: {
+    defaultTheme?: string;
+    defaultVariant?: string;
+  };
+  componentThemes?: {
+    [componentType: string]: {
+      variant?: string;
+      theme?: string;
+    };
+  };
+}
 
 /**
  * Load shared navigation configuration
@@ -26,6 +42,53 @@ function getSharedNavigation(): Pick<PageData, "header" | "footer"> {
     console.warn("Warning: Could not load shared navigation. Pages will use their own navigation.");
     return { header: undefined, footer: undefined };
   }
+}
+
+/**
+ * Load shared theme configuration
+ *
+ * @returns Theme configuration
+ */
+function getSharedTheme(): ThemeConfig {
+  try {
+    const themePath = join(process.cwd(), "src", "data", "shared", "theme.yaml");
+    const themeContents = readFileSync(themePath, "utf8");
+    const themeData = yaml.load(themeContents) as ThemeConfig;
+    return themeData;
+  } catch (error) {
+    console.warn("Warning: Could not load shared theme. Using default styles.");
+    return {};
+  }
+}
+
+/**
+ * Apply shared theme to components
+ *
+ * @param data - Page data with components
+ * @param themeConfig - Shared theme configuration
+ */
+function applySharedTheme(data: PageData, themeConfig: ThemeConfig): void {
+  if (!data.components || !themeConfig.componentThemes) {
+    return;
+  }
+
+  data.components.forEach((component) => {
+    // Skip if component already has style defined (page-level override)
+    if (component.config.style) {
+      return;
+    }
+
+    // Get theme for this component type
+    const componentTheme = themeConfig.componentThemes?.[component.type];
+
+    if (componentTheme && (componentTheme.variant || componentTheme.theme)) {
+      // Apply shared theme to component (cast to proper types)
+      component.config.style = {
+        variant: componentTheme.variant as ComponentVariant | undefined,
+        theme: componentTheme.theme as ThemeName | undefined,
+      };
+    }
+  });
 }
 
 /**
@@ -47,12 +110,18 @@ export async function getPageData(pageName: string): Promise<PageData> {
     // Load shared navigation
     const sharedNav = getSharedNavigation();
 
+    // Load shared theme
+    const sharedTheme = getSharedTheme();
+
     // Merge shared navigation with page data (page data takes precedence if it exists)
     const mergedData: PageData = {
       ...data,
       header: data.header ?? sharedNav.header,
       footer: data.footer ?? sharedNav.footer,
     };
+
+    // Apply shared theme to components (components can still override)
+    applySharedTheme(mergedData, sharedTheme);
 
     // Validate the data structure
     validatePageData(mergedData, pageName);

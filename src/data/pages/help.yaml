@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "lavender"
       content:
         title: "How Can"
         highlightedTitle: "We Help?"
@@ -212,9 +209,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "sunset"
       content:
         tagline: "Still Need Help?"
         title: "Get in Touch With Our Team"

@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "midnight"
       content:
         title: "Our"
         highlightedTitle: "Portfolio"
@@ -241,9 +238,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "ocean"
       content:
         tagline: "Ready to Start?"
         title: "Let's Build Your Next Project"

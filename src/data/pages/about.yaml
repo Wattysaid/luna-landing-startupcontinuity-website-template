@@ -23,9 +23,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "ocean"
       content:
         title: "Building the Future"
         highlightedTitle: "Together"
@@ -196,9 +193,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "sunset"
       content:
         tagline: "Join Us"
         title: "Ready to Build Something Amazing?"

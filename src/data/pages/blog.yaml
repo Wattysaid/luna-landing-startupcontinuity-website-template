@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "sunset"
       content:
         title: "Insights &"
         highlightedTitle: "Inspiration"
@@ -171,9 +168,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "midnight"
       content:
         title: "Never Miss an Article"
         description: "Get our latest blog posts delivered straight to your inbox. Join 5,000+ subscribers."
@@ -195,9 +189,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "forest"
       content:
         tagline: "Need Help?"
         title: "Work With Our Team"

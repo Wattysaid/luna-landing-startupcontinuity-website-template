@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "lavender"
       content:
         title: "Let's Talk"
         highlightedTitle: "About Your Project"
@@ -175,9 +172,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "ocean"
       content:
         title: "Stay Updated"
         description: "Subscribe to our newsletter for web development tips, industry insights, and company updates"

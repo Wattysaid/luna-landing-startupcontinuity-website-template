@@ -16,9 +16,6 @@ components:
     config:
       layout:
         spacing: "large"
-      style:
-        variant: "gradient"
-        theme: "midnight"
       content:
         title: "Simple,"
         highlightedTitle: "Transparent Pricing"
@@ -233,9 +230,6 @@ components:
     config:
       layout:
         spacing: "xl"
-      style:
-        variant: "gradient"
-        theme: "ocean"
       content:
         tagline: "Ready to Get Started?"
         title: "Start Your Free Trial Today"
