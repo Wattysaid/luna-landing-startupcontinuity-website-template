@@ -5,7 +5,7 @@ meta:
   charset: "UTF-8"
 
 layout:
-  containerWidth: "full"
+  containerWidth: "3/4" # Options: "full", "3/4", "2/3", "1/2"
 
 # Note: Header and footer are automatically loaded from src/data/shared/navigation.yaml
 
