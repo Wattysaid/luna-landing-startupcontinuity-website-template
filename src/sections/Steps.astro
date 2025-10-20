@@ -1,0 +1,109 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Icon from "@/components/Icon.astro";
+import type { Icon as IconType, StepsData } from "@/config/landing.interface";
+
+interface Props {
+  data: StepsData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="steps-section" class="steps-section flex flex-col mb-60 gap-y-28">
+  <SectionTitle>
+    {data.title}
+  </SectionTitle>
+
+  {data.subtitle && (
+    <p class="steps-subtitle text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-8">
+      {data.subtitle}
+    </p>
+  )}
+
+  <div class="max-w-4xl mx-auto w-full">
+    <div class="relative">
+      {/* Vertical line connecting steps */}
+      <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-blue-300" aria-hidden="true"></div>
+
+      <div class="space-y-12">
+        {
+          data.steps.map((step, index) => (
+            <div class="relative flex items-start group">
+              {/* Step number circle */}
+              <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg z-10 shadow-lg group-hover:scale-110 transition-transform">
+                {index + 1}
+              </div>
+
+              {/* Step content */}
+              <div class="ml-8 flex-grow step-card p-6 rounded-lg border border-gray-200 bg-white shadow-md hover:shadow-xl transition-shadow">
+                <div class="flex items-start justify-between">
+                  <div class="flex-grow">
+                    {step.icon && (
+                      <div class="flex items-center mb-3">
+                        <Icon class="w-8 h-8 text-primary mr-3" icon={step.icon as IconType} />
+                        <h3 class="step-title text-2xl font-bold text-gray-900">
+                          {step.title}
+                        </h3>
+                      </div>
+                    )}
+                    {!step.icon && (
+                      <h3 class="step-title text-2xl font-bold text-gray-900 mb-3">
+                        {step.title}
+                      </h3>
+                    )}
+
+                    <p class="step-description text-gray-600 text-lg leading-relaxed">
+                      {step.description}
+                    </p>
+
+                    {step.details && step.details.length > 0 && (
+                      <ul class="mt-4 space-y-2">
+                        {step.details.map((detail) => (
+                          <li class="flex items-start text-gray-600">
+                            <svg
+                              class="w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Theme-aware styling using CSS custom properties */
+  .steps-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .steps-subtitle {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .step-card {
+    background-color: var(--theme-card-bg, #FFFFFF);
+    border-color: var(--theme-border, #E5E7EB);
+  }
+
+  .step-title {
+    color: var(--theme-text, #161925);
+  }
+
+  .step-description {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+</style>

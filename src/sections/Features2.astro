@@ -1,0 +1,122 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Icon from "@/components/Icon.astro";
+import type { Icon as IconType, Features2Data } from "@/config/landing.interface";
+
+interface Props {
+  data: Features2Data;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="features2-section" class="features2-section flex flex-col mb-60 gap-y-28">
+  <div class="max-w-7xl mx-auto w-full">
+    <SectionTitle>
+      {data.title}
+    </SectionTitle>
+
+    {data.subtitle && (
+      <p class="features2-subtitle text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-16">
+        {data.subtitle}
+      </p>
+    )}
+
+    <div class="space-y-20">
+      {
+        data.features.map((feature, index) => (
+          <div class={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
+            {/* Image Side */}
+            {feature.image && (
+              <div class="lg:w-1/2">
+                <div class="relative">
+                  <img
+                    src={feature.image}
+                    alt={feature.imageAlt || feature.title}
+                    class="w-full h-auto rounded-2xl shadow-2xl"
+                  />
+                  {feature.badge && (
+                    <div class="absolute -top-4 -right-4 bg-primary text-white px-6 py-3 rounded-full font-bold shadow-lg">
+                      {feature.badge}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Content Side */}
+            <div class="lg:w-1/2 space-y-6">
+              {feature.icon && (
+                <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Icon class="w-8 h-8 text-primary" icon={feature.icon as IconType} />
+                </div>
+              )}
+
+              <h3 class="feature-title text-3xl lg:text-4xl font-bold text-gray-900">
+                {feature.title}
+              </h3>
+
+              <p class="feature-description text-lg text-gray-600 leading-relaxed">
+                {feature.description}
+              </p>
+
+              {feature.benefits && feature.benefits.length > 0 && (
+                <ul class="space-y-3">
+                  {feature.benefits.map((benefit) => (
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-gray-700">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {feature.link && (
+                <div class="pt-4">
+                  <a
+                    href={feature.link}
+                    class="inline-flex items-center text-primary hover:text-blue-700 font-semibold group"
+                  >
+                    {feature.linkText || "Learn More"}
+                    <svg
+                      class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .features2-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .features2-subtitle {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .feature-title {
+    color: var(--theme-text, #161925);
+  }
+
+  .feature-description {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+</style>

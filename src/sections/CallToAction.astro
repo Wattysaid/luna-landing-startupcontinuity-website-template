@@ -1,0 +1,110 @@
+---
+import Action from "@/components/Action.astro";
+import type { CallToActionData } from "@/config/landing.interface";
+
+interface Props {
+  data: CallToActionData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="cta-section" class="cta-section flex justify-center items-center py-20 mb-60">
+  <div class="cta-card max-w-4xl mx-auto text-center p-10 md:p-16 rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-white shadow-2xl">
+    {data.tagline && (
+      <span class="cta-tagline inline-block px-4 py-1 mb-6 text-sm font-semibold text-primary bg-blue-50 rounded-full">
+        {data.tagline}
+      </span>
+    )}
+
+    <h2 class="cta-title text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      {data.title}
+    </h2>
+
+    {data.subtitle && (
+      <p class="cta-subtitle text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+        {data.subtitle}
+      </p>
+    )}
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      {data.primaryCta && (
+        <Action
+          as="a"
+          type="button"
+          class="cta-primary bg-primary text-white hover:bg-blue-700 px-8 py-4 text-lg font-semibold"
+          href={data.primaryCta.href}
+          target={data.primaryCta.target}
+        >
+          {data.primaryCta.text}
+        </Action>
+      )}
+
+      {data.secondaryCta && (
+        <Action
+          as="a"
+          class="cta-secondary bg-transparent text-gray-900 border-2 border-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 text-lg font-semibold"
+          type="button"
+          href={data.secondaryCta.href}
+          target={data.secondaryCta.target}
+        >
+          {data.secondaryCta.text}
+        </Action>
+      )}
+    </div>
+
+    {data.note && (
+      <p class="cta-note mt-6 text-sm text-gray-500">
+        {data.note}
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  /* Theme-aware styling using CSS custom properties */
+  .cta-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .cta-card {
+    background: var(--theme-card-bg, linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%));
+    border-color: var(--theme-border, #E5E7EB);
+  }
+
+  .cta-tagline {
+    color: var(--theme-accent, #1D4ED8);
+    background-color: var(--theme-card-bg, #EFF6FF);
+  }
+
+  .cta-title {
+    color: var(--theme-text, #161925);
+  }
+
+  .cta-subtitle {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  .cta-note {
+    color: var(--theme-text-secondary, #9CA3AF);
+  }
+
+  .cta-primary {
+    background-color: var(--theme-accent, #1D4ED8);
+    color: var(--theme-bg, #FFFFFF);
+  }
+
+  .cta-primary:hover {
+    background-color: var(--theme-accent-hover, #1E40AF);
+  }
+
+  .cta-secondary {
+    border-color: var(--theme-text, #161925);
+    color: var(--theme-text, #161925);
+  }
+
+  .cta-secondary:hover {
+    background-color: var(--theme-text, #161925);
+    color: var(--theme-bg, #FFFFFF);
+  }
+</style>

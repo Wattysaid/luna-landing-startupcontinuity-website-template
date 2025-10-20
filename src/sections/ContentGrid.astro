@@ -1,0 +1,150 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Action from "@/components/Action.astro";
+import type { ContentGridData } from "@/config/landing.interface";
+
+interface Props {
+  data: ContentGridData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="content-grid-section" class="content-grid-section flex flex-col mb-60 gap-y-28">
+  <SectionTitle>
+    {data.title}
+  </SectionTitle>
+
+  {data.subtitle && (
+    <p class="content-subtitle text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-8">
+      {data.subtitle}
+    </p>
+  )}
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto w-full">
+    {
+      data.items.map((item) => (
+        <article class="content-card flex flex-col bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden">
+          {/* Image */}
+          {item.image && (
+            <div class="aspect-video w-full overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.imageAlt || item.title}
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
+
+          {/* Content */}
+          <div class="p-6 flex flex-col flex-grow">
+            {/* Category/Tag */}
+            {item.category && (
+              <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold text-primary bg-blue-50 rounded-full w-fit">
+                {item.category}
+              </span>
+            )}
+
+            {/* Title */}
+            <h3 class="content-title text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+              {item.title}
+            </h3>
+
+            {/* Description */}
+            {item.description && (
+              <p class="content-description text-gray-600 mb-4 line-clamp-3 flex-grow">
+                {item.description}
+              </p>
+            )}
+
+            {/* Meta Info */}
+            <div class="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
+              <div class="flex items-center">
+                {item.author && (
+                  <span class="font-medium text-gray-700">{item.author}</span>
+                )}
+              </div>
+              {item.date && (
+                <time datetime={item.date} class="text-gray-500">
+                  {item.date}
+                </time>
+              )}
+            </div>
+
+            {/* Read More Link */}
+            {item.link && (
+              <div class="mt-4">
+                <Action
+                  as="a"
+                  href={item.link}
+                  class="text-primary hover:text-blue-700 font-semibold inline-flex items-center group"
+                >
+                  {item.linkText || "Read More"}
+                  <svg
+                    class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Action>
+              </div>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  {/* View All Button */}
+  {data.viewAllLink && (
+    <div class="flex justify-center mt-8">
+      <Action
+        as="a"
+        href={data.viewAllLink}
+        class="bg-primary text-white hover:bg-blue-700 px-8 py-4 text-lg font-semibold rounded-lg"
+      >
+        {data.viewAllText || "View All"}
+      </Action>
+    </div>
+  )}
+</section>
+
+<style>
+  .content-grid-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .content-subtitle {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .content-card {
+    background-color: var(--theme-card-bg, #FFFFFF);
+    border-color: var(--theme-border, #E5E7EB);
+  }
+
+  .content-title {
+    color: var(--theme-text, #161925);
+  }
+
+  .content-description {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

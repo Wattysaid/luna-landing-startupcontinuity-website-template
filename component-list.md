@@ -17,6 +17,20 @@ This document lists all available components in the YAML-driven page system. Use
    - [Brands](#brands)
    - [Pricing](#pricing)
    - [Footer](#footer)
+   - [FAQ](#faq)
+   - [CallToAction](#calltoaction)
+   - [Testimonials](#testimonials)
+   - [Stats](#stats)
+   - [Steps](#steps)
+   - [Team](#team)
+   - [ContactForm](#contactform)
+   - [Newsletter](#newsletter)
+   - [ContentGrid](#contentgrid)
+   - [Features2](#features2)
+   - [Content](#content)
+   - [LogoCloud](#logocloud)
+   - [Comparison](#comparison)
+   - [Gallery](#gallery)
 3. [Layout Options](#layout-options)
 4. [Style Options (Variants & Themes)](#style-options-variants--themes)
 5. [Icon Reference](#icon-reference)
@@ -444,6 +458,710 @@ footer:
 | `socials` | array | Yes | Array of social media links |
 | `socials[].icon` | Icon | Yes | Social media icon (see Icon Reference) |
 | `socials[].href` | string | Yes | Social media profile URL |
+
+---
+
+### FAQ
+
+**Type**: `"FAQ"`
+**Purpose**: Frequently Asked Questions with collapsible answers
+**Visual**: Two-column grid of expandable question cards
+
+#### Configuration
+
+```yaml
+- type: "FAQ"
+  id: "faq-section"
+  enabled: true
+  config:
+    content:
+      title: "Frequently Asked Questions"
+      description: "Find answers to common questions"
+      faqs:
+        - question: "How does it work?"
+          answer: "Our platform provides..."
+          icon: "CheckIcon"
+        - question: "Is it secure?"
+          answer: "Yes, we use industry-standard encryption..."
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `description` | string | No | Section description |
+| `faqs` | array | Yes | Array of FAQ items |
+| `faqs[].question` | string | Yes | The question |
+| `faqs[].answer` | string | Yes | The answer |
+| `faqs[].icon` | Icon | No | Optional icon (default: CheckIcon) |
+
+---
+
+### CallToAction
+
+**Type**: `"CallToAction"`
+**Purpose**: Prominent call-to-action banner with gradient background
+**Visual**: Full-width colored gradient card with CTAs
+
+#### Configuration
+
+```yaml
+- type: "CallToAction"
+  id: "cta-section"
+  enabled: true
+  config:
+    content:
+      title: "Ready to Get Started?"
+      subtitle: "Join thousands of satisfied customers"
+      tagline: "Limited Time Offer"
+      primaryCta:
+        text: "Start Free Trial"
+        href: "/signup"
+        target: "_self"
+      secondaryCta:
+        text: "Learn More"
+        href: "/about"
+      note: "No credit card required"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Main CTA heading |
+| `subtitle` | string | No | Supporting text |
+| `tagline` | string | No | Small tag above title |
+| `primaryCta` | object | No | Primary button |
+| `primaryCta.text` | string | Yes | Button text |
+| `primaryCta.href` | string | Yes | Button link |
+| `primaryCta.target` | string | No | Link target |
+| `secondaryCta` | object | No | Secondary button |
+| `note` | string | No | Small disclaimer text |
+
+---
+
+### Testimonials
+
+**Type**: `"Testimonials"`
+**Purpose**: Customer testimonials and reviews
+**Visual**: Grid of testimonial cards with photos and ratings
+
+#### Configuration
+
+```yaml
+- type: "Testimonials"
+  id: "testimonials"
+  enabled: true
+  config:
+    content:
+      title: "What Our Clients Say"
+      subtitle: "Trusted by industry leaders"
+      testimonials:
+        - quote: "Exceptional service and support!"
+          name: "John Doe"
+          title: "CEO"
+          company: "Tech Corp"
+          image: "/testimonial1.jpg"
+          rating: 5
+        - quote: "Transformed our business"
+          name: "Jane Smith"
+          company: "Startup Inc"
+          rating: 5
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `testimonials` | array | Yes | Array of testimonials |
+| `testimonials[].quote` | string | Yes | The testimonial text |
+| `testimonials[].name` | string | Yes | Person's name |
+| `testimonials[].title` | string | No | Job title |
+| `testimonials[].company` | string | No | Company name |
+| `testimonials[].image` | string | No | Photo URL |
+| `testimonials[].rating` | number | No | Star rating (1-5) |
+
+---
+
+### Stats
+
+**Type**: `"Stats"`
+**Purpose**: Display impressive statistics and metrics
+**Visual**: Horizontal row of large numbers with labels
+
+#### Configuration
+
+```yaml
+- type: "Stats"
+  id: "stats-section"
+  enabled: true
+  config:
+    content:
+      title: "Our Impact"
+      subtitle: "Numbers that speak for themselves"
+      stats:
+        - amount: "10K+"
+          label: "Happy Customers"
+          description: "Across 50 countries"
+          icon: "CheckIcon"
+        - amount: "99.9%"
+          label: "Uptime"
+          description: "Enterprise reliability"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `stats` | array | Yes | Array of stats |
+| `stats[].amount` | string | Yes | The number/statistic |
+| `stats[].label` | string | Yes | Stat description |
+| `stats[].description` | string | No | Additional context |
+| `stats[].icon` | Icon | No | Optional icon |
+
+---
+
+### Steps
+
+**Type**: `"Steps"`
+**Purpose**: Show a process or workflow in sequential steps
+**Visual**: Vertical timeline with numbered steps
+
+#### Configuration
+
+```yaml
+- type: "Steps"
+  id: "how-it-works"
+  enabled: true
+  config:
+    content:
+      title: "How It Works"
+      subtitle: "Get started in 3 easy steps"
+      steps:
+        - title: "Sign Up"
+          description: "Create your free account"
+          icon: "CheckIcon"
+          details:
+            - "No credit card required"
+            - "Free 14-day trial"
+        - title: "Configure"
+          description: "Set up your preferences"
+        - title: "Launch"
+          description: "Go live in minutes"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `steps` | array | Yes | Array of steps |
+| `steps[].title` | string | Yes | Step title |
+| `steps[].description` | string | Yes | Step description |
+| `steps[].icon` | Icon | No | Optional icon |
+| `steps[].details` | array | No | Additional bullet points |
+
+---
+
+### Team
+
+**Type**: `"Team"`
+**Purpose**: Display team members with photos and bios
+**Visual**: Grid of team member cards
+
+#### Configuration
+
+```yaml
+- type: "Team"
+  id: "team-section"
+  enabled: true
+  config:
+    content:
+      title: "Meet Our Team"
+      subtitle: "The people behind our success"
+      members:
+        - name: "John Doe"
+          title: "Founder & CEO"
+          bio: "20 years of industry experience"
+          image: "/team/john.jpg"
+          socials:
+            - icon: "TwitterIcon"
+              href: "https://twitter.com/johndoe"
+            - icon: "GithubIcon"
+              href: "https://github.com/johndoe"
+        - name: "Jane Smith"
+          title: "CTO"
+          image: "/team/jane.jpg"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `members` | array | Yes | Array of team members |
+| `members[].name` | string | Yes | Person's name |
+| `members[].title` | string | No | Job title |
+| `members[].bio` | string | No | Short biography |
+| `members[].image` | string | No | Photo URL |
+| `members[].socials` | array | No | Social media links |
+
+---
+
+### ContactForm
+
+**Type**: `"ContactForm"`
+**Purpose**: Contact form with contact information sidebar
+**Visual**: Two-column layout with form and contact details
+
+#### Configuration
+
+```yaml
+- type: "ContactForm"
+  id: "contact-section"
+  enabled: true
+  config:
+    content:
+      title: "Get In Touch"
+      subtitle: "We'd love to hear from you"
+      contactInfo:
+        title: "Contact Information"
+        description: "Reach out to us anytime"
+        email: "hello@company.com"
+        phone: "+1 (555) 123-4567"
+        address: "123 Main St, City, ST 12345"
+      fields:
+        - name: "name"
+          label: "Full Name"
+          type: "text"
+          required: true
+          placeholder: "John Doe"
+        - name: "email"
+          label: "Email Address"
+          type: "email"
+          required: true
+        - name: "message"
+          label: "Message"
+          type: "textarea"
+          required: true
+          rows: 4
+      formAction: "/api/contact"
+      formMethod: "POST"
+      submitText: "Send Message"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `contactInfo` | object | No | Contact information panel |
+| `contactInfo.email` | string | No | Email address |
+| `contactInfo.phone` | string | No | Phone number |
+| `contactInfo.address` | string | No | Physical address |
+| `fields` | array | Yes | Form fields |
+| `fields[].name` | string | Yes | Field name attribute |
+| `fields[].label` | string | Yes | Field label |
+| `fields[].type` | string | Yes | Field type (text, email, tel, textarea, select) |
+| `fields[].required` | boolean | No | Is required? |
+| `fields[].placeholder` | string | No | Placeholder text |
+| `fields[].rows` | number | No | Rows for textarea |
+| `fields[].options` | array | No | Options for select field |
+| `formAction` | string | No | Form submission URL |
+| `formMethod` | string | No | HTTP method (default: POST) |
+| `submitText` | string | No | Submit button text |
+
+---
+
+### Newsletter
+
+**Type**: `"Newsletter"`
+**Purpose**: Email newsletter signup with prominent design
+**Visual**: Gradient card with email input and benefits
+
+#### Configuration
+
+```yaml
+- type: "Newsletter"
+  id: "newsletter"
+  enabled: true
+  config:
+    content:
+      title: "Stay Updated"
+      description: "Subscribe to our newsletter for the latest updates"
+      placeholder: "Enter your email address"
+      buttonText: "Subscribe"
+      formAction: "/api/newsletter"
+      formMethod: "POST"
+      disclaimer: "We respect your privacy. Unsubscribe anytime."
+      benefits:
+        - "Weekly insights"
+        - "Exclusive offers"
+        - "No spam"
+      icon: true
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Main heading |
+| `description` | string | No | Supporting text |
+| `placeholder` | string | No | Email input placeholder |
+| `buttonText` | string | No | Submit button text |
+| `formAction` | string | No | Form submission URL |
+| `formMethod` | string | No | HTTP method |
+| `disclaimer` | string | No | Privacy disclaimer text |
+| `benefits` | array | No | List of benefits |
+| `icon` | boolean | No | Show envelope icon |
+
+---
+
+### ContentGrid
+
+**Type**: `"ContentGrid"`
+**Purpose**: Blog posts, articles, or content cards in a grid
+**Visual**: Responsive grid of content cards with images
+
+#### Configuration
+
+```yaml
+- type: "ContentGrid"
+  id: "blog-section"
+  enabled: true
+  config:
+    content:
+      title: "Latest Articles"
+      subtitle: "Insights from our team"
+      items:
+        - title: "Getting Started Guide"
+          description: "Learn the basics in 10 minutes"
+          image: "/blog/article1.jpg"
+          imageAlt: "Tutorial screenshot"
+          category: "Tutorial"
+          author: "John Doe"
+          date: "2025-10-15"
+          link: "/blog/getting-started"
+          linkText: "Read More"
+        - title: "Best Practices"
+          description: "Tips from the experts"
+          category: "Guide"
+          link: "/blog/best-practices"
+      viewAllLink: "/blog"
+      viewAllText: "View All Articles"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `items` | array | Yes | Array of content items |
+| `items[].title` | string | Yes | Item title |
+| `items[].description` | string | No | Item description |
+| `items[].image` | string | No | Featured image URL |
+| `items[].imageAlt` | string | No | Image alt text |
+| `items[].category` | string | No | Category tag |
+| `items[].author` | string | No | Author name |
+| `items[].date` | string | No | Publish date |
+| `items[].link` | string | No | Link URL |
+| `items[].linkText` | string | No | Link text |
+| `viewAllLink` | string | No | "View All" button URL |
+| `viewAllText` | string | No | "View All" button text |
+
+---
+
+### Features2
+
+**Type**: `"Features2"`
+**Purpose**: Alternate feature presentation with side-by-side layout
+**Visual**: Alternating image and content blocks
+
+#### Configuration
+
+```yaml
+- type: "Features2"
+  id: "features-alt"
+  enabled: true
+  config:
+    content:
+      title: "Powerful Features"
+      subtitle: "Everything you need to succeed"
+      features:
+        - title: "Advanced Analytics"
+          description: "Track every metric that matters"
+          image: "/features/analytics.jpg"
+          imageAlt: "Analytics dashboard"
+          icon: "DevIcon"
+          badge: "New"
+          benefits:
+            - "Real-time reporting"
+            - "Custom dashboards"
+            - "Export to CSV"
+          link: "/features/analytics"
+          linkText: "Learn More"
+        - title: "Team Collaboration"
+          description: "Work together seamlessly"
+          image: "/features/collaboration.jpg"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `subtitle` | string | No | Section subtitle |
+| `features` | array | Yes | Array of features |
+| `features[].title` | string | Yes | Feature title |
+| `features[].description` | string | Yes | Feature description |
+| `features[].image` | string | No | Feature image |
+| `features[].imageAlt` | string | No | Image alt text |
+| `features[].icon` | Icon | No | Optional icon |
+| `features[].benefits` | array | No | List of benefits |
+| `features[].link` | string | No | Link URL |
+| `features[].linkText` | string | No | Link text |
+| `features[].badge` | string | No | Badge text (e.g., "New") |
+
+---
+
+### Content
+
+**Type**: `"Content"`
+**Purpose**: Rich content blocks for about pages and long-form content
+**Visual**: Flexible layout with text, images, quotes, and features
+
+#### Configuration
+
+```yaml
+- type: "Content"
+  id: "about-content"
+  enabled: true
+  config:
+    content:
+      title: "About Our Company"
+      subtitle: "Building the future, one project at a time"
+      blocks:
+        - tagline: "Our Mission"
+          title: "We Build Digital Experiences"
+          description: "Since 2020, we've been helping businesses transform their digital presence.\n\nOur team of experts is dedicated to delivering exceptional results."
+          features:
+            - title: "Innovation First"
+              description: "We stay ahead of the curve"
+              icon: "DevIcon"
+            - title: "Client Focused"
+              description: "Your success is our success"
+          image: "/about/office.jpg"
+          imageAlt: "Our office"
+          imageBadge: "10+ Years"
+          layout: "two-column"
+          cta:
+            text: "Learn More"
+            href: "/story"
+        - quote: "The best team we've ever worked with!"
+          quoteAuthor: "John Doe, CEO"
+          layout: "single-column"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | No | Main section title |
+| `subtitle` | string | No | Section subtitle |
+| `blocks` | array | Yes | Array of content blocks |
+| `blocks[].tagline` | string | No | Small tag above title |
+| `blocks[].title` | string | No | Block title |
+| `blocks[].description` | string | No | Block text (use \n\n for paragraphs) |
+| `blocks[].features` | array | No | Feature list |
+| `blocks[].features[].title` | string | Yes | Feature title |
+| `blocks[].features[].description` | string | No | Feature description |
+| `blocks[].features[].icon` | Icon | No | Feature icon |
+| `blocks[].quote` | string | No | Pull quote text |
+| `blocks[].quoteAuthor` | string | No | Quote attribution |
+| `blocks[].cta` | object | No | Call-to-action button |
+| `blocks[].image` | string | No | Block image |
+| `blocks[].imageAlt` | string | No | Image alt text |
+| `blocks[].imageBadge` | string | No | Badge on image |
+| `blocks[].layout` | string | No | "single-column" or "two-column" |
+| `blocks[].reversed` | boolean | No | Reverse image position |
+
+---
+
+### LogoCloud
+
+**Type**: `"LogoCloud"`
+**Purpose**: Display partner, client, or technology logos
+**Visual**: Grid of logos with grayscale hover effect
+
+#### Configuration
+
+```yaml
+- type: "LogoCloud"
+  id: "partners"
+  enabled: true
+  config:
+    content:
+      title: "Trusted By Industry Leaders"
+      description: "Join thousands of companies using our platform"
+      layout: "default"
+      logos:
+        - name: "Company A"
+          image: "/logos/companya.png"
+          alt: "Company A logo"
+          link: "https://companya.com"
+          newTab: true
+        - name: "Company B"
+          image: "/logos/companyb.png"
+        - name: "Company C"
+      cta:
+        text: "See All Partners"
+        href: "/partners"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | No | Section heading |
+| `description` | string | No | Section description |
+| `layout` | string | No | "default" (3-4 cols) or "compact" (4-6 cols) |
+| `logos` | array | Yes | Array of logos |
+| `logos[].name` | string | Yes | Company name |
+| `logos[].image` | string | No | Logo image URL |
+| `logos[].alt` | string | No | Image alt text |
+| `logos[].link` | string | No | Company website |
+| `logos[].newTab` | boolean | No | Open in new tab |
+| `cta` | object | No | Optional CTA link |
+
+---
+
+### Comparison
+
+**Type**: `"Comparison"`
+**Purpose**: Feature or pricing comparison table
+**Visual**: Responsive table with checkmarks and values
+
+#### Configuration
+
+```yaml
+- type: "Comparison"
+  id: "plan-comparison"
+  enabled: true
+  config:
+    content:
+      title: "Compare Plans"
+      description: "Find the perfect plan for your needs"
+      featureColumnLabel: "Features"
+      options:
+        - name: "Free"
+          price: "$0"
+          description: "For individuals"
+          badge: "Popular"
+          cta:
+            text: "Get Started"
+            href: "/signup?plan=free"
+            primary: false
+        - name: "Pro"
+          price: "$29/mo"
+          cta:
+            text: "Start Trial"
+            href: "/signup?plan=pro"
+            primary: true
+      features:
+        - name: "Projects"
+          description: "Number of active projects"
+          values: ["5", "Unlimited"]
+        - name: "Storage"
+          values: ["1 GB", "100 GB"]
+        - name: "Support"
+          values: [true, true]
+        - name: "Advanced Analytics"
+          values: [false, true]
+      showCtas: true
+      note: "All plans include 14-day free trial"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `description` | string | No | Section description |
+| `featureColumnLabel` | string | No | Label for features column |
+| `options` | array | Yes | Plans/options to compare |
+| `options[].name` | string | Yes | Option name |
+| `options[].price` | string | No | Price text |
+| `options[].description` | string | No | Option description |
+| `options[].badge` | string | No | Badge (e.g., "Popular") |
+| `options[].cta` | object | No | Call-to-action button |
+| `features` | array | Yes | Features to compare |
+| `features[].name` | string | Yes | Feature name |
+| `features[].description` | string | No | Feature description |
+| `features[].values` | array | Yes | Values for each option (boolean or string) |
+| `showCtas` | boolean | No | Show CTA buttons at bottom |
+| `note` | string | No | Small note below table |
+
+---
+
+### Gallery
+
+**Type**: `"Gallery"`
+**Purpose**: Image gallery with multiple layout options
+**Visual**: Grid, masonry, carousel, or full-width image display
+
+#### Configuration
+
+```yaml
+- type: "Gallery"
+  id: "portfolio"
+  enabled: true
+  config:
+    content:
+      title: "Our Work"
+      description: "Projects we're proud of"
+      layout: "grid"
+      columns: 3
+      images:
+        - src: "/gallery/project1.jpg"
+          alt: "Project 1"
+          title: "E-commerce Platform"
+          description: "Full-stack web application"
+        - src: "/gallery/project2.jpg"
+          title: "Mobile App"
+        - src: "/gallery/project3.jpg"
+      loadMoreText: "Load More"
+```
+
+#### All Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `title` | string | Yes | Section heading |
+| `description` | string | No | Section description |
+| `layout` | string | No | "grid", "masonry", "carousel", or "full-width" |
+| `columns` | number | No | Columns for grid (2, 3, or 4) |
+| `images` | array | Yes | Array of images |
+| `images[].src` | string | Yes | Image URL |
+| `images[].alt` | string | No | Image alt text |
+| `images[].title` | string | No | Image title (shown on hover) |
+| `images[].description` | string | No | Image description (shown on hover) |
+| `loadMoreText` | string | No | "Load More" button text |
+
+#### Layout Options
+
+- **grid**: Standard responsive grid
+- **masonry**: Pinterest-style layout
+- **carousel**: Horizontal scrolling
+- **full-width**: Large full-width images
 
 ---
 
@@ -983,6 +1701,20 @@ components:
 | Brands | `"Brands"` | Partner/tech logos | No | Yes |
 | Pricing | `"Pricing"` | Pricing tiers | Yes | No |
 | Footer | `"Footer"` | Site footer | No | Yes |
+| FAQ | `"FAQ"` | Collapsible Q&A | No | Yes |
+| CallToAction | `"CallToAction"` | Prominent CTA banner | No | No |
+| Testimonials | `"Testimonials"` | Customer reviews | Yes | No |
+| Stats | `"Stats"` | Metrics display | No | Yes |
+| Steps | `"Steps"` | Process/workflow | No | Yes |
+| Team | `"Team"` | Team member profiles | Yes | Yes (socials) |
+| ContactForm | `"ContactForm"` | Contact page | No | No |
+| Newsletter | `"Newsletter"` | Email signup | No | Yes |
+| ContentGrid | `"ContentGrid"` | Blog/article grid | Yes | No |
+| Features2 | `"Features2"` | Alternating features | No | Yes |
+| Content | `"Content"` | Rich content blocks | No | Yes |
+| LogoCloud | `"LogoCloud"` | Client/partner logos | No | No |
+| Comparison | `"Comparison"` | Feature comparison table | No | No |
+| Gallery | `"Gallery"` | Image gallery | Yes | No |
 
 ---
 
@@ -1008,7 +1740,7 @@ components:
 ---
 
 **Last Updated**: 2025-10-20
-**Components**: 7 total
+**Components**: 21 total (Header, Hero, Services, Adventajes, Brands, Pricing, Footer, FAQ, CallToAction, Testimonials, Stats, Steps, Team, ContactForm, Newsletter, ContentGrid, Features2, Content, LogoCloud, Comparison, Gallery)
 **Icons**: 15 available
 **Variants**: 5 available (default, dark, light, gradient, outline)
 **Themes**: 6 available (default, ocean, sunset, forest, midnight, lavender)

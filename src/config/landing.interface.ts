@@ -108,6 +108,264 @@ export interface LdJson {
   sameAs: string[];
 }
 
+// ==================== New Component Data Interfaces ====================
+
+export interface FAQData {
+  title: string;
+  description?: string;
+  faqs: FAQ[];
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
+  icon?: Icon;
+}
+
+export interface CallToActionData {
+  title: string;
+  subtitle?: string;
+  tagline?: string;
+  primaryCta?: {
+    text: string;
+    href: string;
+    target?: string;
+  };
+  secondaryCta?: {
+    text: string;
+    href: string;
+    target?: string;
+  };
+  note?: string;
+}
+
+export interface TestimonialsData {
+  title: string;
+  subtitle?: string;
+  testimonials: Testimonial[];
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  title?: string;
+  company?: string;
+  image?: string;
+  rating?: number;
+}
+
+export interface StatsData {
+  title: string;
+  subtitle?: string;
+  stats: Stat[];
+}
+
+export interface Stat {
+  amount: string;
+  label: string;
+  description?: string;
+  icon?: Icon;
+}
+
+export interface StepsData {
+  title: string;
+  subtitle?: string;
+  steps: Step[];
+}
+
+export interface Step {
+  title: string;
+  description: string;
+  icon?: Icon;
+  details?: string[];
+}
+
+export interface TeamData {
+  title: string;
+  subtitle?: string;
+  members: TeamMember[];
+}
+
+export interface TeamMember {
+  name: string;
+  title?: string;
+  bio?: string;
+  image?: string;
+  socials?: Social[];
+}
+
+// ==================== Additional Component Data Interfaces ====================
+
+export interface ContactFormData {
+  title: string;
+  subtitle?: string;
+  contactInfo?: {
+    title?: string;
+    description?: string;
+    email?: string;
+    phone?: string;
+    address?: string;
+  };
+  fields: FormField[];
+  formAction?: string;
+  formMethod?: string;
+  submitText?: string;
+}
+
+export interface FormField {
+  name: string;
+  label: string;
+  type: "text" | "email" | "tel" | "textarea" | "select";
+  required?: boolean;
+  placeholder?: string;
+  rows?: number;
+  options?: { value: string; label: string }[];
+}
+
+export interface NewsletterData {
+  title: string;
+  description?: string;
+  placeholder?: string;
+  buttonText?: string;
+  formAction?: string;
+  formMethod?: string;
+  disclaimer?: string;
+  benefits?: string[];
+  icon?: boolean;
+}
+
+export interface ContentGridData {
+  title: string;
+  subtitle?: string;
+  items: ContentItem[];
+  viewAllLink?: string;
+  viewAllText?: string;
+}
+
+export interface ContentItem {
+  title: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  category?: string;
+  author?: string;
+  date?: string;
+  link?: string;
+  linkText?: string;
+}
+
+export interface Features2Data {
+  title: string;
+  subtitle?: string;
+  features: Feature2Item[];
+}
+
+export interface Feature2Item {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  icon?: Icon;
+  benefits?: string[];
+  link?: string;
+  linkText?: string;
+  badge?: string;
+}
+
+export interface ContentData {
+  title?: string;
+  subtitle?: string;
+  blocks: ContentBlock[];
+}
+
+export interface ContentBlock {
+  tagline?: string;
+  title?: string;
+  description?: string;
+  features?: ContentFeature[];
+  quote?: string;
+  quoteAuthor?: string;
+  cta?: {
+    text: string;
+    href: string;
+    showArrow?: boolean;
+  };
+  image?: string;
+  imageAlt?: string;
+  imageBadge?: string;
+  layout?: "single-column" | "two-column";
+  reversed?: boolean;
+}
+
+export interface ContentFeature {
+  title: string;
+  description?: string;
+  icon?: Icon;
+}
+
+export interface LogoCloudData {
+  title?: string;
+  description?: string;
+  logos: Logo[];
+  layout?: "default" | "compact";
+  cta?: {
+    text: string;
+    href: string;
+  };
+}
+
+export interface Logo {
+  name: string;
+  image?: string;
+  alt?: string;
+  link?: string;
+  newTab?: boolean;
+}
+
+export interface ComparisonData {
+  title: string;
+  description?: string;
+  featureColumnLabel?: string;
+  options: ComparisonOption[];
+  features: ComparisonFeature[];
+  showCtas?: boolean;
+  note?: string;
+}
+
+export interface ComparisonOption {
+  name: string;
+  price?: string;
+  description?: string;
+  badge?: string;
+  cta?: {
+    text: string;
+    href: string;
+    primary?: boolean;
+  };
+}
+
+export interface ComparisonFeature {
+  name: string;
+  description?: string;
+  values: (boolean | string)[];
+}
+
+export interface GalleryData {
+  title: string;
+  description?: string;
+  images: GalleryImage[];
+  layout?: "grid" | "masonry" | "carousel" | "full-width";
+  columns?: 2 | 3 | 4;
+  loadMoreText?: string;
+}
+
+export interface GalleryImage {
+  src: string;
+  alt?: string;
+  title?: string;
+  description?: string;
+}
+
 export type Icon =
   | "DevIcon"
   | "FileIcon"

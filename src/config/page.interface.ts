@@ -1,4 +1,20 @@
-import type { Icon } from "./landing.interface";
+import type {
+  Icon,
+  FAQData,
+  CallToActionData,
+  TestimonialsData,
+  StatsData,
+  StepsData,
+  TeamData,
+  ContactFormData,
+  NewsletterData,
+  ContentGridData,
+  Features2Data,
+  ContentData,
+  LogoCloudData,
+  ComparisonData,
+  GalleryData,
+} from "./landing.interface";
 
 // ==================== Base Types ====================
 
@@ -148,6 +164,90 @@ export interface FooterConfig {
   };
 }
 
+export interface FAQConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: FAQData;
+}
+
+export interface CallToActionConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: CallToActionData;
+}
+
+export interface TestimonialsConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: TestimonialsData;
+}
+
+export interface StatsConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: StatsData;
+}
+
+export interface StepsConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: StepsData;
+}
+
+export interface TeamConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: TeamData;
+}
+
+export interface ContactFormConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: ContactFormData;
+}
+
+export interface NewsletterConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: NewsletterData;
+}
+
+export interface ContentGridConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: ContentGridData;
+}
+
+export interface Features2Config {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: Features2Data;
+}
+
+export interface ContentConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: ContentData;
+}
+
+export interface LogoCloudConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: LogoCloudData;
+}
+
+export interface ComparisonConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: ComparisonData;
+}
+
+export interface GalleryConfig {
+  layout?: LayoutConfig;
+  style?: StyleConfig;
+  content: GalleryData;
+}
+
 // ==================== Component Type Union ====================
 
 export type ComponentType =
@@ -157,7 +257,21 @@ export type ComponentType =
   | "Brands"
   | "Pricing"
   | "Header"
-  | "Footer";
+  | "Footer"
+  | "FAQ"
+  | "CallToAction"
+  | "Testimonials"
+  | "Stats"
+  | "Steps"
+  | "Team"
+  | "ContactForm"
+  | "Newsletter"
+  | "ContentGrid"
+  | "Features2"
+  | "Content"
+  | "LogoCloud"
+  | "Comparison"
+  | "Gallery";
 
 export type ComponentConfig =
   | HeroConfig
@@ -166,7 +280,21 @@ export type ComponentConfig =
   | BrandsConfig
   | PricingConfig
   | HeaderConfig
-  | FooterConfig;
+  | FooterConfig
+  | FAQConfig
+  | CallToActionConfig
+  | TestimonialsConfig
+  | StatsConfig
+  | StepsConfig
+  | TeamConfig
+  | ContactFormConfig
+  | NewsletterConfig
+  | ContentGridConfig
+  | Features2Config
+  | ContentConfig
+  | LogoCloudConfig
+  | ComparisonConfig
+  | GalleryConfig;
 
 // ==================== Page Component Structure ====================
 
@@ -181,7 +309,21 @@ export interface PageComponent {
     | BrandsConfig
     | PricingConfig
     | HeaderConfig
-    | FooterConfig;
+    | FooterConfig
+    | FAQConfig
+    | CallToActionConfig
+    | TestimonialsConfig
+    | StatsConfig
+    | StepsConfig
+    | TeamConfig
+    | ContactFormConfig
+    | NewsletterConfig
+    | ContentGridConfig
+    | Features2Config
+    | ContentConfig
+    | LogoCloudConfig
+    | ComparisonConfig
+    | GalleryConfig;
 }
 
 // ==================== Page Data Structure ====================

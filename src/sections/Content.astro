@@ -1,0 +1,178 @@
+---
+import Action from "@/components/Action.astro";
+import Icon from "@/components/Icon.astro";
+import type { Icon as IconType, ContentData } from "@/config/landing.interface";
+
+interface Props {
+  data: ContentData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="content-section" class="content-section flex flex-col mb-60 gap-y-28">
+  <div class="max-w-7xl mx-auto w-full">
+    {data.title && (
+      <h2 class="content-main-title text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6">
+        {data.title}
+      </h2>
+    )}
+
+    {data.subtitle && (
+      <p class="content-subtitle text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+        {data.subtitle}
+      </p>
+    )}
+
+    <div class="space-y-20">
+      {
+        data.blocks.map((block) => (
+          <div class={`content-block ${block.layout === "two-column" ? "grid md:grid-cols-2 gap-12 items-center" : ""} ${block.reversed ? "md:flex-row-reverse" : ""}`}>
+            {/* Text Content */}
+            <div class={block.layout === "two-column" ? "" : "max-w-4xl mx-auto"}>
+              {block.tagline && (
+                <span class="inline-block px-4 py-2 mb-4 text-sm font-semibold text-primary bg-blue-50 rounded-full">
+                  {block.tagline}
+                </span>
+              )}
+
+              {block.title && (
+                <h3 class="content-title text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {block.title}
+                </h3>
+              )}
+
+              {block.description && (
+                <div class="content-description text-lg text-gray-600 leading-relaxed mb-8 space-y-4">
+                  {block.description.split("\n\n").map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              )}
+
+              {block.features && block.features.length > 0 && (
+                <ul class="space-y-4 mb-8">
+                  {block.features.map((feature) => (
+                    <li class="flex items-start">
+                      {feature.icon ? (
+                        <div class="flex-shrink-0 mr-4">
+                          <Icon class="w-6 h-6 text-primary" icon={feature.icon as IconType} />
+                        </div>
+                      ) : (
+                        <svg
+                          class="w-6 h-6 text-primary mr-4 flex-shrink-0 mt-1"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                      )}
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">{feature.title}</h4>
+                        {feature.description && (
+                          <p class="text-gray-600">{feature.description}</p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {block.quote && (
+                <blockquote class="content-quote border-l-4 border-primary pl-6 py-4 mb-8 italic text-gray-700 text-lg">
+                  "{block.quote}"
+                  {block.quoteAuthor && (
+                    <cite class="block mt-2 text-sm font-semibold text-gray-900 not-italic">
+                      - {block.quoteAuthor}
+                    </cite>
+                  )}
+                </blockquote>
+              )}
+
+              {block.cta && (
+                <div class="mt-8">
+                  <Action
+                    as="a"
+                    href={block.cta.href}
+                    class="inline-flex items-center bg-primary text-white hover:bg-blue-700 px-6 py-3 text-lg font-semibold rounded-lg"
+                  >
+                    {block.cta.text}
+                    {block.cta.showArrow !== false && (
+                      <svg
+                        class="w-5 h-5 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    )}
+                  </Action>
+                </div>
+              )}
+            </div>
+
+            {/* Image/Media Content */}
+            {block.image && block.layout === "two-column" && (
+              <div class={`relative ${block.reversed ? "md:order-first" : ""}`}>
+                <img
+                  src={block.image}
+                  alt={block.imageAlt || block.title || "Content image"}
+                  class="w-full h-auto rounded-2xl shadow-2xl"
+                />
+                {block.imageBadge && (
+                  <div class="absolute -top-4 -right-4 bg-primary text-white px-6 py-3 rounded-full font-bold shadow-lg">
+                    {block.imageBadge}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Full Width Image */}
+            {block.image && block.layout !== "two-column" && (
+              <div class="relative mt-8">
+                <img
+                  src={block.image}
+                  alt={block.imageAlt || block.title || "Content image"}
+                  class="w-full h-auto rounded-2xl shadow-2xl"
+                />
+                {block.imageBadge && (
+                  <div class="absolute -top-4 -right-4 bg-primary text-white px-6 py-3 rounded-full font-bold shadow-lg">
+                    {block.imageBadge}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .content-main-title {
+    color: var(--theme-text, #161925);
+  }
+
+  .content-subtitle {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  .content-title {
+    color: var(--theme-text, #161925);
+  }
+
+  .content-description {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  .content-quote {
+    border-color: var(--theme-accent, #1D4ED8);
+    color: var(--theme-text-secondary, #374151);
+  }
+</style>

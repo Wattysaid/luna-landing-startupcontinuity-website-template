@@ -1,0 +1,97 @@
+---
+import Action from "@/components/Action.astro";
+import type { NewsletterData } from "@/config/landing.interface";
+
+interface Props {
+  data: NewsletterData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="newsletter-section" class="newsletter-section flex justify-center items-center py-20 mb-60">
+  <div class="newsletter-card max-w-4xl mx-auto w-full text-center p-12 md:p-16 rounded-2xl bg-gradient-to-br from-primary to-blue-600 shadow-2xl">
+    {data.icon && (
+      <div class="flex justify-center mb-6">
+        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+    )}
+
+    <h2 class="newsletter-title text-4xl md:text-5xl font-bold text-white mb-6">
+      {data.title}
+    </h2>
+
+    {data.description && (
+      <p class="newsletter-description text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+        {data.description}
+      </p>
+    )}
+
+    <form action={data.formAction || "#"} method={data.formMethod || "POST"} class="max-w-2xl mx-auto">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder={data.placeholder || "Enter your email address"}
+          class="flex-grow px-6 py-4 text-lg rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
+        />
+        <Action
+          as="button"
+          type="submit"
+          class="whitespace-nowrap bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg transition-all hover:scale-105"
+        >
+          {data.buttonText || "Subscribe"}
+        </Action>
+      </div>
+
+      {data.disclaimer && (
+        <p class="newsletter-disclaimer mt-4 text-sm text-white/70">
+          {data.disclaimer}
+        </p>
+      )}
+    </form>
+
+    {data.benefits && data.benefits.length > 0 && (
+      <div class="mt-10 flex flex-wrap justify-center gap-6">
+        {data.benefits.map((benefit) => (
+          <div class="flex items-center text-white/90">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>{benefit}</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .newsletter-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .newsletter-card {
+    background: var(--theme-accent, linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%));
+  }
+
+  .newsletter-title,
+  .newsletter-description {
+    color: #FFFFFF;
+  }
+
+  .newsletter-disclaimer {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  input:focus {
+    outline: none;
+  }
+</style>

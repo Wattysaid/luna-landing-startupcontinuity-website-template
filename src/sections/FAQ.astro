@@ -1,0 +1,86 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Icon from "@/components/Icon.astro";
+import type { Icon as IconType, FAQData } from "@/config/landing.interface";
+
+interface Props {
+  data: FAQData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="faq-section" class="faq-section flex flex-col mb-60 gap-y-28">
+  <SectionTitle>
+    {data.title}
+  </SectionTitle>
+
+  {data.description && (
+    <p class="faq-description text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-8">
+      {data.description}
+    </p>
+  )}
+
+  <div class="grid md:grid-cols-2 gap-6 justify-items-center max-w-6xl mx-auto w-full">
+    {
+      data.faqs.map((faq) => (
+        <details class="faq-item group w-full bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-primary transition-colors">
+          <summary class="flex items-start justify-between cursor-pointer list-none">
+            <div class="flex items-start gap-4 flex-1">
+              <div class="flex-shrink-0 mt-1">
+                <Icon class="w-6 h-6 text-primary" icon={faq.icon as IconType || "CheckIcon"} />
+              </div>
+              <h3 class="faq-question text-lg font-semibold text-gray-900 pr-4">
+                {faq.question}
+              </h3>
+            </div>
+            <svg
+              class="w-5 h-5 text-gray-500 transition-transform group-open:rotate-180 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="faq-answer mt-4 ml-10 text-gray-600 text-pretty">
+            {faq.answer}
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  /* Theme-aware styling using CSS custom properties */
+  .faq-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .faq-description {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .faq-item {
+    background-color: var(--theme-card-bg, #F9FAFB);
+    border-color: var(--theme-border, #E5E7EB);
+  }
+
+  .faq-item:hover {
+    border-color: var(--theme-accent, #1D4ED8);
+  }
+
+  .faq-question {
+    color: var(--theme-text, #161925);
+  }
+
+  .faq-answer {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  /* Smooth animation for details element */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

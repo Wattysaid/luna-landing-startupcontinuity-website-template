@@ -1,0 +1,179 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Action from "@/components/Action.astro";
+import type { ComparisonData } from "@/config/landing.interface";
+
+interface Props {
+  data: ComparisonData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="comparison-section" class="comparison-section flex flex-col mb-60 gap-y-28">
+  <div class="max-w-7xl mx-auto w-full">
+    <SectionTitle>
+      {data.title}
+    </SectionTitle>
+
+    {data.description && (
+      <p class="comparison-description text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-16">
+        {data.description}
+      </p>
+    )}
+
+    <div class="comparison-table-wrapper overflow-x-auto">
+      <table class="comparison-table w-full border-collapse">
+        <thead>
+          <tr class="border-b-2 border-gray-300">
+            <th class="text-left py-6 px-6 text-gray-900 font-bold text-lg">
+              {data.featureColumnLabel || "Features"}
+            </th>
+            {
+              data.options.map((option) => (
+                <th class="text-center py-6 px-6 min-w-[150px]">
+                  <div class="flex flex-col items-center">
+                    {option.badge && (
+                      <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-white bg-primary rounded-full">
+                        {option.badge}
+                      </span>
+                    )}
+                    <h3 class="option-name text-xl font-bold text-gray-900 mb-2">
+                      {option.name}
+                    </h3>
+                    {option.price && (
+                      <p class="option-price text-2xl font-bold text-primary">
+                        {option.price}
+                      </p>
+                    )}
+                    {option.description && (
+                      <p class="option-description text-sm text-gray-600 mt-2">
+                        {option.description}
+                      </p>
+                    )}
+                  </div>
+                </th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody>
+          {
+            data.features.map((feature, index) => (
+              <tr class={`border-b border-gray-200 ${index % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
+                <td class="py-4 px-6 font-semibold text-gray-900">
+                  {feature.name}
+                  {feature.description && (
+                    <p class="text-sm text-gray-600 font-normal mt-1">
+                      {feature.description}
+                    </p>
+                  )}
+                </td>
+                {
+                  feature.values.map((value) => (
+                    <td class="py-4 px-6 text-center">
+                      {typeof value === "boolean" ? (
+                        value ? (
+                          <svg
+                            class="w-6 h-6 text-green-500 mx-auto"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                          </svg>
+                        ) : (
+                          <svg
+                            class="w-6 h-6 text-gray-300 mx-auto"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                          </svg>
+                        )
+                      ) : (
+                        <span class="text-gray-700">{value}</span>
+                      )}
+                    </td>
+                  ))
+                }
+              </tr>
+            ))
+          }
+        </tbody>
+        {data.showCtas && (
+          <tfoot>
+            <tr>
+              <td class="py-6 px-6"></td>
+              {
+                data.options.map((option) => (
+                  <td class="py-6 px-6 text-center">
+                    {option.cta && (
+                      <Action
+                        as="a"
+                        href={option.cta.href}
+                        class={`inline-block px-6 py-3 font-semibold rounded-lg transition-all ${
+                          option.cta.primary
+                            ? "bg-primary text-white hover:bg-blue-700"
+                            : "bg-gray-100 text-gray-900 hover:bg-gray-200"
+                        }`}
+                      >
+                        {option.cta.text}
+                      </Action>
+                    )}
+                  </td>
+                ))
+              }
+            </tr>
+          </tfoot>
+        )}
+      </table>
+    </div>
+
+    {data.note && (
+      <p class="comparison-note text-center text-sm text-gray-500 mt-8">
+        {data.note}
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .comparison-description {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .comparison-table {
+    background-color: var(--theme-card-bg, #FFFFFF);
+  }
+
+  .option-name {
+    color: var(--theme-text, #161925);
+  }
+
+  .option-price {
+    color: var(--theme-accent, #1D4ED8);
+  }
+
+  .option-description {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  .comparison-note {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+
+  /* Responsive table */
+  @media (max-width: 768px) {
+    .comparison-table-wrapper {
+      overflow-x: scroll;
+    }
+
+    .comparison-table {
+      min-width: 600px;
+    }
+  }
+</style>

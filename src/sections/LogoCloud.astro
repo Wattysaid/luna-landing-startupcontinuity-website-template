@@ -1,0 +1,121 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import type { LogoCloudData } from "@/config/landing.interface";
+
+interface Props {
+  data: LogoCloudData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="logo-cloud-section" class="logo-cloud-section flex flex-col mb-60 gap-y-28">
+  <div class="max-w-7xl mx-auto w-full">
+    {data.title && (
+      <SectionTitle>
+        {data.title}
+      </SectionTitle>
+    )}
+
+    {data.description && (
+      <p class="logo-cloud-description text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-16">
+        {data.description}
+      </p>
+    )}
+
+    <div class={`logo-grid grid gap-8 items-center justify-items-center ${
+      data.layout === "compact"
+        ? "grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
+        : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    }`}>
+      {
+        data.logos.map((logo) => (
+          <div class="logo-item flex items-center justify-center p-6 transition-all hover:scale-110 hover:opacity-100 opacity-70">
+            {logo.link ? (
+              <a
+                href={logo.link}
+                target={logo.newTab ? "_blank" : "_self"}
+                rel={logo.newTab ? "noopener noreferrer" : undefined}
+                class="block"
+                aria-label={logo.alt || logo.name}
+              >
+                {logo.image ? (
+                  <img
+                    src={logo.image}
+                    alt={logo.alt || logo.name}
+                    class="logo-image max-h-12 w-auto grayscale hover:grayscale-0 transition-all"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span class="logo-text text-2xl font-bold text-gray-700">
+                    {logo.name}
+                  </span>
+                )}
+              </a>
+            ) : (
+              logo.image ? (
+                <img
+                  src={logo.image}
+                  alt={logo.alt || logo.name}
+                  class="logo-image max-h-12 w-auto grayscale hover:grayscale-0 transition-all"
+                  loading="lazy"
+                />
+              ) : (
+                <span class="logo-text text-2xl font-bold text-gray-700">
+                  {logo.name}
+                </span>
+              )
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    {data.cta && (
+      <div class="flex justify-center mt-12">
+        <a
+          href={data.cta.href}
+          class="inline-flex items-center text-primary hover:text-blue-700 font-semibold group"
+        >
+          {data.cta.text}
+          <svg
+            class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .logo-cloud-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .logo-cloud-description {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .logo-item {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .logo-item:hover {
+    filter: grayscale(0%);
+  }
+
+  .logo-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .logo-text {
+    color: var(--theme-text-secondary, #374151);
+  }
+</style>

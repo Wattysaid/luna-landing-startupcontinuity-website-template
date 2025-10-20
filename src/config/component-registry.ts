@@ -18,6 +18,20 @@ import Brands from "@/sections/Brands.astro";
 import Pricing from "@/sections/Pricing.astro";
 import Header from "@/sections/Header.astro";
 import Footer from "@/sections/Footer.astro";
+import FAQ from "@/sections/FAQ.astro";
+import CallToAction from "@/sections/CallToAction.astro";
+import Testimonials from "@/sections/Testimonials.astro";
+import Stats from "@/sections/Stats.astro";
+import Steps from "@/sections/Steps.astro";
+import Team from "@/sections/Team.astro";
+import ContactForm from "@/sections/ContactForm.astro";
+import Newsletter from "@/sections/Newsletter.astro";
+import ContentGrid from "@/sections/ContentGrid.astro";
+import Features2 from "@/sections/Features2.astro";
+import Content from "@/sections/Content.astro";
+import LogoCloud from "@/sections/LogoCloud.astro";
+import Comparison from "@/sections/Comparison.astro";
+import Gallery from "@/sections/Gallery.astro";
 
 import type { ComponentType } from "./page.interface";
 
@@ -29,6 +43,20 @@ export const ComponentRegistry = {
   Pricing,
   Header,
   Footer,
+  FAQ,
+  CallToAction,
+  Testimonials,
+  Stats,
+  Steps,
+  Team,
+  ContactForm,
+  Newsletter,
+  ContentGrid,
+  Features2,
+  Content,
+  LogoCloud,
+  Comparison,
+  Gallery,
 } as const;
 
 /**

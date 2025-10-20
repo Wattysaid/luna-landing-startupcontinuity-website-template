@@ -1,0 +1,106 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Icon from "@/components/Icon.astro";
+import type { Icon as IconType, TeamData } from "@/config/landing.interface";
+
+interface Props {
+  data: TeamData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="team-section" class="team-section flex flex-col mb-60 gap-y-28">
+  <SectionTitle>
+    {data.title}
+  </SectionTitle>
+
+  {data.subtitle && (
+    <p class="team-subtitle text-center text-lg text-gray-600 max-w-3xl mx-auto -mt-16 mb-8">
+      {data.subtitle}
+    </p>
+  )}
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto w-full">
+    {
+      data.members.map((member) => (
+        <div class="team-card flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+          {/* Member Photo */}
+          {member.image && (
+            <div class="mb-4">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-32 h-32 rounded-full object-cover border-4 border-gray-100 shadow-lg"
+              />
+            </div>
+          )}
+
+          {/* Member Name */}
+          <h3 class="team-member-name text-xl font-bold text-gray-900 mb-1">
+            {member.name}
+          </h3>
+
+          {/* Member Title */}
+          {member.title && (
+            <p class="team-member-title text-sm font-semibold text-primary mb-2">
+              {member.title}
+            </p>
+          )}
+
+          {/* Member Bio */}
+          {member.bio && (
+            <p class="team-member-bio text-gray-600 text-sm mb-4">
+              {member.bio}
+            </p>
+          )}
+
+          {/* Social Links */}
+          {member.socials && member.socials.length > 0 && (
+            <div class="flex gap-3 mt-auto">
+              {member.socials.map((social) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-400 hover:text-primary transition-colors"
+                  aria-label={`${member.name} on ${social.icon}`}
+                >
+                  <Icon class="w-5 h-5" icon={social.icon as IconType} />
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  /* Theme-aware styling using CSS custom properties */
+  .team-section {
+    color: var(--theme-text, inherit);
+  }
+
+  .team-subtitle {
+    color: var(--theme-text-secondary, inherit);
+  }
+
+  .team-card {
+    background-color: var(--theme-card-bg, #FFFFFF);
+    border-color: var(--theme-border, #E5E7EB);
+  }
+
+  .team-member-name {
+    color: var(--theme-text, #161925);
+  }
+
+  .team-member-title {
+    color: var(--theme-accent, #1D4ED8);
+  }
+
+  .team-member-bio {
+    color: var(--theme-text-secondary, #6B7280);
+  }
+</style>
