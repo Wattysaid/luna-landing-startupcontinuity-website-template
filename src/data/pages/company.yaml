@@ -7,23 +7,7 @@ meta:
 layout:
   containerWidth: "3/4"
 
-header:
-  type: "Header"
-  enabled: true
-  config:
-    content:
-      logo: "Luna Landing"
-      links:
-        - label: "Home"
-          href: "/"
-        - label: "Company"
-          href: "/company"
-        - label: "Team"
-          href: "#team"
-        - label: "Careers"
-          href: "#careers"
-        - label: "Contact"
-          href: "/contact"
+# Note: Header and footer are automatically loaded from src/data/shared/navigation.yaml
 
 components:
   - type: "Hero"
@@ -318,31 +302,3 @@ components:
             category: "Engineering"
             link: "/careers/backend-engineer"
             linkText: "Apply Now"
-
-footer:
-  type: "Footer"
-  enabled: true
-  config:
-    content:
-      logo: "Luna Landing"
-      description: "Modern landing pages, simplified."
-      links:
-        - label: "Company"
-          href: "/company"
-        - label: "Careers"
-          href: "/company#careers"
-        - label: "About"
-          href: "/about"
-        - label: "Blog"
-          href: "/blog"
-        - label: "Contact"
-          href: "/contact"
-        - label: "Privacy"
-          href: "/privacy"
-      socials:
-        - icon: "GithubIcon"
-          href: "https://github.com"
-        - icon: "TwitterIcon"
-          href: "https://twitter.com"
-        - icon: "InstagramIcon"
-          href: "https://instagram.com"

@@ -27,24 +27,7 @@ meta:
 layout:
   containerWidth: "3/4" # Options: "full", "3/4", "2/3", "1/2"
 
-# ==================== Header Component ====================
-header:
-  type: "Header"
-  enabled: true
-  config:
-    content:
-      logo: "Luna Landing"
-      links:
-        - label: "About"
-          href: "#"
-        - label: "Services"
-          href: "#"
-        - label: "Prices"
-          href: "#"
-        - label: "FAQs"
-          href: "#"
-        - label: "Blog"
-          href: "#"
+# Note: Header and footer are automatically loaded from src/data/shared/navigation.yaml
 
 # ==================== Main Content Components ====================
 components:
@@ -200,32 +183,3 @@ components:
               - "feature 5"
             cta: "Get started"
             ctaHref: "#"
-
-# ==================== Footer Component ====================
-footer:
-  type: "Footer"
-  enabled: true
-  config:
-    content:
-      logo: "Luna Landing"
-      description: "Discover the Beauty of the Cosmos: Explore the Infinite Wonders of Space with Us"
-      links:
-        - label: "About"
-          href: "/"
-        - label: "Services"
-          href: "/"
-        - label: "Blog"
-          href: "/"
-        - label: "FAQs"
-          href: "/"
-        - label: "Contact"
-          href: "/"
-      socials:
-        - icon: "FacebookIcon"
-          href: "/"
-        - icon: "InstagramIcon"
-          href: "/"
-        - icon: "TwitterIcon"
-          href: "/"
-        - icon: "GithubIcon"
-          href: "/"

@@ -7,23 +7,7 @@ meta:
 layout:
   containerWidth: "full"
 
-header:
-  type: "Header"
-  enabled: true
-  config:
-    content:
-      logo: "Luna Landing"
-      links:
-        - label: "Home"
-          href: "/"
-        - label: "Portfolio"
-          href: "/portfolio"
-        - label: "Services"
-          href: "/services"
-        - label: "About"
-          href: "/about"
-        - label: "Contact"
-          href: "/contact"
+# Note: Header and footer are automatically loaded from src/data/shared/navigation.yaml
 
 components:
   - type: "Hero"
@@ -273,31 +257,3 @@ components:
           href: "/pricing"
           target: "_self"
         note: "Free consultation • Fast turnaround • Satisfaction guaranteed"
-
-footer:
-  type: "Footer"
-  enabled: true
-  config:
-    content:
-      logo: "Luna Landing"
-      description: "Modern landing pages, simplified."
-      links:
-        - label: "Portfolio"
-          href: "/portfolio"
-        - label: "Services"
-          href: "/services"
-        - label: "About"
-          href: "/about"
-        - label: "Blog"
-          href: "/blog"
-        - label: "Contact"
-          href: "/contact"
-        - label: "Privacy"
-          href: "/privacy"
-      socials:
-        - icon: "GithubIcon"
-          href: "https://github.com"
-        - icon: "TwitterIcon"
-          href: "https://twitter.com"
-        - icon: "InstagramIcon"
-          href: "https://instagram.com"
