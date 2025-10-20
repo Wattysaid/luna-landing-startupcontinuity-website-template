@@ -1,0 +1,66 @@
+# Shared Navigation Configuration
+# This file is imported by all pages to ensure consistent navigation across the site
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Features"
+          href: "/features"
+        - label: "Services"
+          href: "/services"
+        - label: "Portfolio"
+          href: "/portfolio"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Company"
+          href: "/company"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Help"
+          href: "/help"
+        - label: "Contact"
+          href: "/contact"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Features"
+          href: "/features"
+        - label: "Services"
+          href: "/services"
+        - label: "Portfolio"
+          href: "/portfolio"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Company"
+          href: "/company"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Help"
+          href: "/help"
+        - label: "Contact"
+          href: "/contact"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

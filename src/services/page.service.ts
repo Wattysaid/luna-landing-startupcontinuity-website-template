@@ -12,6 +12,23 @@ import type { PageData } from "@/config/page.interface";
 import { isValidComponentType } from "@/config/component-registry";
 
 /**
+ * Load shared navigation configuration
+ *
+ * @returns Shared navigation data (header and footer)
+ */
+function getSharedNavigation(): Pick<PageData, "header" | "footer"> {
+  try {
+    const navPath = join(process.cwd(), "src", "data", "shared", "navigation.yaml");
+    const navContents = readFileSync(navPath, "utf8");
+    const navData = yaml.load(navContents) as Pick<PageData, "header" | "footer">;
+    return navData;
+  } catch (error) {
+    console.warn("Warning: Could not load shared navigation. Pages will use their own navigation.");
+    return { header: undefined, footer: undefined };
+  }
+}
+
+/**
  * Load page data from a YAML file
  *
  * @param pageName - Name of the page file (without .yaml extension)
@@ -27,10 +44,20 @@ export async function getPageData(pageName: string): Promise<PageData> {
     const fileContents = readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as PageData;
 
-    // Validate the data structure
-    validatePageData(data, pageName);
+    // Load shared navigation
+    const sharedNav = getSharedNavigation();
 
-    return data;
+    // Merge shared navigation with page data (page data takes precedence if it exists)
+    const mergedData: PageData = {
+      ...data,
+      header: data.header ?? sharedNav.header,
+      footer: data.footer ?? sharedNav.footer,
+    };
+
+    // Validate the data structure
+    validatePageData(mergedData, pageName);
+
+    return mergedData;
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
