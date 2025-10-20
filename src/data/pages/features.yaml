@@ -1,0 +1,339 @@
+meta:
+  title: "Features - Luna Landing"
+  description: "Explore Luna Landing's powerful features. Everything you need to build stunning websites with ease."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "Features"
+          href: "/features"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Docs"
+          href: "#docs"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "features-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "ocean"
+      content:
+        title: "Powerful Features,"
+        highlightedTitle: "Simple Interface"
+        subTitle: "Everything you need to build, launch, and grow your online presence. No complexity, just results."
+        primaryCta:
+          text: "Explore Features"
+          href: "#all-features"
+          target: "_self"
+        secondaryCta:
+          text: "Start Free Trial"
+          href: "/signup"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#all-features"
+
+  - type: "Features2"
+    id: "all-features"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Everything You Need"
+        subtitle: "Comprehensive tools for modern web development"
+        features:
+          - title: "YAML-Driven Configuration"
+            description: "Build entire websites using simple YAML files. No code required for content management. Just edit your YAML and deploy."
+            image: "/seo.webp"
+            imageAlt: "YAML configuration"
+            icon: "FileIcon"
+            badge: "Core"
+            benefits:
+              - "No coding required"
+              - "Version control friendly"
+              - "Easy to learn"
+              - "Instant updates"
+            link: "/docs/yaml-config"
+            linkText: "Learn More"
+
+          - title: "21 Ready-to-Use Components"
+            description: "From hero sections to contact forms, we've got you covered. Every component is responsive, accessible, and customizable."
+            image: "/template.webp"
+            imageAlt: "Component library"
+            icon: "DevIcon"
+            badge: "Library"
+            benefits:
+              - "Hero & CTAs"
+              - "Forms & newsletters"
+              - "Testimonials & stats"
+              - "Galleries & grids"
+            link: "/docs/components"
+            linkText: "View All Components"
+
+          - title: "Theme System"
+            description: "6 beautiful themes with automatic dark mode support. Switch themes instantly without touching CSS."
+            image: "/seo.webp"
+            imageAlt: "Theme customization"
+            icon: "ConfigIcon"
+            badge: "Styling"
+            benefits:
+              - "Ocean, Sunset, Forest themes"
+              - "Midnight, Lavender, Default"
+              - "CSS custom properties"
+              - "Easy customization"
+            link: "/docs/themes"
+            linkText: "Explore Themes"
+
+          - title: "Component Variants"
+            description: "5 visual variants for every component. Create contrast and visual hierarchy effortlessly."
+            image: "/template.webp"
+            imageAlt: "Visual variants"
+            icon: "CheckIcon"
+            benefits:
+              - "Default & Dark modes"
+              - "Light & Gradient styles"
+              - "Outline variants"
+              - "Mix and match"
+            link: "/docs/variants"
+            linkText: "See Examples"
+
+          - title: "Lightning Fast Performance"
+            description: "Static site generation means instant page loads. Perfect Lighthouse scores out of the box."
+            image: "/seo.webp"
+            imageAlt: "Performance metrics"
+            icon: "PlanetIcon"
+            badge: "Fast"
+            benefits:
+              - "Static generation"
+              - "Optimized assets"
+              - "Minimal JavaScript"
+              - "CDN ready"
+            link: "/docs/performance"
+            linkText: "Learn More"
+
+          - title: "SEO Optimized"
+            description: "Built-in SEO best practices. Structured data, meta tags, and sitemaps generated automatically."
+            image: "/template.webp"
+            imageAlt: "SEO tools"
+            icon: "FileIcon"
+            benefits:
+              - "Meta tag management"
+              - "Structured data (JSON-LD)"
+              - "Automatic sitemaps"
+              - "robots.txt generation"
+            link: "/docs/seo"
+            linkText: "SEO Guide"
+
+  - type: "Services"
+    id: "feature-highlights"
+    enabled: true
+    config:
+      layout:
+        columns: 3
+        spacing: "xl"
+      content:
+        title: "More Amazing Features"
+        services:
+          - title: "TypeScript Support"
+            icon: "DevIcon"
+            description: "Full type safety with TypeScript for confident development"
+          - title: "Responsive Design"
+            icon: "PlanetIcon"
+            description: "Mobile-first approach ensuring perfect display on all devices"
+          - title: "Accessibility"
+            icon: "CheckIcon"
+            description: "WCAG compliant components for inclusive user experiences"
+          - title: "Version Control"
+            icon: "FileIcon"
+            description: "Git-friendly YAML configs for easy collaboration"
+          - title: "Deployment Ready"
+            icon: "ConfigIcon"
+            description: "Deploy to Vercel, Netlify, or any static host in minutes"
+          - title: "Open Source"
+            icon: "DevIcon"
+            description: "MIT licensed and community-driven development"
+
+  - type: "Brands"
+    id: "integrations"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "light"
+      content:
+        title: "Built With Modern Technology"
+        description: "Powered by the best tools in the ecosystem"
+        brands:
+          - label: "Astro"
+            icon: "ReactIcon"
+            href: "https://astro.build"
+          - label: "React"
+            icon: "ReactIcon"
+            href: "https://react.dev"
+          - label: "Vue"
+            icon: "VueIcon"
+            href: "https://vuejs.org"
+          - label: "Svelte"
+            icon: "SvelteIcon"
+            href: "https://svelte.dev"
+          - label: "Vercel"
+            icon: "VercelIcon"
+            href: "https://vercel.com"
+          - label: "Netlify"
+            icon: "NetlifyIcon"
+            href: "https://netlify.com"
+
+  - type: "Comparison"
+    id: "feature-comparison"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "How We Compare"
+        description: "See how Luna Landing stacks up against alternatives"
+        featureColumnLabel: "Features"
+        options:
+          - name: "Luna Landing"
+            badge: "Best Value"
+            cta:
+              text: "Start Free"
+              href: "/signup"
+              primary: true
+          - name: "WordPress"
+            cta:
+              text: "Compare"
+              href: "#"
+              primary: false
+          - name: "Webflow"
+            cta:
+              text: "Compare"
+              href: "#"
+              primary: false
+        features:
+          - name: "Setup Time"
+            values: ["5 minutes", "30+ minutes", "15 minutes"]
+          - name: "Technical Knowledge Required"
+            values: ["Minimal", "Moderate", "Low"]
+          - name: "Performance (Lighthouse)"
+            values: ["95-100", "60-80", "70-90"]
+          - name: "Hosting Cost"
+            values: ["Free-$10/mo", "$5-50/mo", "$12-212/mo"]
+          - name: "Version Control"
+            values: [true, false, false]
+          - name: "Component Library"
+            values: ["21 components", "Plugins", "Limited"]
+          - name: "TypeScript Support"
+            values: [true, false, false]
+          - name: "Learning Curve"
+            values: ["Easy", "Moderate", "Easy"]
+          - name: "SEO Built-in"
+            values: [true, "Plugins", true]
+          - name: "Customization"
+            values: ["Full control", "Theme limited", "Platform limited"]
+        showCtas: true
+        note: "Comparison based on typical use cases as of 2025"
+
+  - type: "Steps"
+    id: "getting-started"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Get Started in Minutes"
+        subtitle: "From zero to deployed in 3 easy steps"
+        steps:
+          - title: "Clone & Install"
+            description: "Clone our starter template and install dependencies with one command"
+            icon: "DevIcon"
+            details:
+              - "git clone the repo"
+              - "pnpm install"
+              - "5 seconds to start"
+
+          - title: "Customize Content"
+            description: "Edit YAML files to add your content, choose components, and configure styling"
+            icon: "FileIcon"
+            details:
+              - "Edit src/data/pages/*.yaml"
+              - "Choose from 21 components"
+              - "Select themes & variants"
+
+          - title: "Deploy"
+            description: "Push to GitHub and deploy to Vercel or Netlify with automatic CI/CD"
+            icon: "CheckIcon"
+            details:
+              - "Connect git repository"
+              - "Automatic deployments"
+              - "Live in minutes"
+
+  - type: "CallToAction"
+    id: "try-it-cta"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "midnight"
+      content:
+        tagline: "Ready to Experience It?"
+        title: "Start Building Today"
+        subtitle: "Try Luna Landing free for 14 days. No credit card required."
+        primaryCta:
+          text: "Start Free Trial"
+          href: "/signup"
+          target: "_self"
+        secondaryCta:
+          text: "View Documentation"
+          href: "#docs"
+          target: "_self"
+        note: "14-day trial • Cancel anytime • Full feature access"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "Features"
+          href: "/features"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Docs"
+          href: "/docs"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

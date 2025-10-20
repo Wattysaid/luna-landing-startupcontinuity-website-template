@@ -1,0 +1,260 @@
+meta:
+  title: "About Us - Luna Landing"
+  description: "Learn about our mission, values, and the team behind Luna Landing. Building the future of web development."
+  lang: "en"
+  charset: "UTF-8"
+  ldJson:
+    "@context": "https://schema.org"
+    "@type": "Organization"
+    name: "Luna Landing"
+    description: "Modern landing page builder"
+    url: "https://lunalanding.dev"
+    logo: "https://lunalanding.dev/logo.png"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "about-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "ocean"
+      content:
+        title: "Building the Future"
+        highlightedTitle: "Together"
+        subTitle: "We're a team of passionate developers and designers creating tools that empower businesses to build stunning websites without complexity."
+        primaryCta:
+          text: "Meet Our Team"
+          href: "#team"
+          target: "_self"
+        secondaryCta:
+          text: "Our Story"
+          href: "#story"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#story"
+
+  - type: "Content"
+    id: "story"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Story"
+        subtitle: "From a simple idea to a powerful platform"
+        blocks:
+          - tagline: "The Beginning"
+            title: "Founded in 2020"
+            description: "Luna Landing was born from a simple frustration: building landing pages was too complicated. We believed there had to be a better way.\n\nWhat started as a weekend project quickly grew into a mission to revolutionize how websites are built. We wanted to create a system that gives developers full control while making it easy for anyone to manage content."
+            image: "/template.webp"
+            imageAlt: "Our founding story"
+            layout: "two-column"
+            features:
+              - title: "Developer First"
+                description: "Built by developers, for developers"
+                icon: "DevIcon"
+              - title: "YAML Driven"
+                description: "Simple configuration, powerful results"
+                icon: "FileIcon"
+              - title: "Modern Stack"
+                description: "Built with cutting-edge technology"
+                icon: "ConfigIcon"
+
+          - tagline: "Our Mission"
+            title: "Empowering Digital Creators"
+            description: "We believe that creating beautiful, functional websites should be accessible to everyone. Our mission is to provide tools that combine simplicity with power, enabling creators to bring their visions to life without technical barriers."
+            layout: "single-column"
+            cta:
+              text: "Read Our Values"
+              href: "#values"
+
+  - type: "Stats"
+    id: "stats"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      content:
+        title: "Luna Landing by the Numbers"
+        subtitle: "Growing every day"
+        stats:
+          - amount: "10,000+"
+            label: "Active Users"
+            description: "Developers worldwide"
+            icon: "CheckIcon"
+          - amount: "50,000+"
+            label: "Sites Built"
+            description: "And counting"
+            icon: "PlanetIcon"
+          - amount: "99.9%"
+            label: "Uptime"
+            description: "Always available"
+            icon: "ConfigIcon"
+          - amount: "21"
+            label: "Components"
+            description: "Ready to use"
+            icon: "DevIcon"
+
+  - type: "Adventajes"
+    id: "values"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Core Values"
+        adventajes:
+          - title: "Simplicity First"
+            description: "We believe powerful tools don't have to be complicated. Every feature we build is designed with simplicity in mind, making complex tasks feel effortless."
+            img: "template.webp"
+            imageAlt: "Simple and elegant design"
+            checks:
+              - "Intuitive YAML configuration"
+              - "Clear documentation"
+              - "Minimal learning curve"
+              - "Clean, maintainable code"
+
+          - title: "Performance Matters"
+            description: "Speed isn't optional—it's essential. We optimize every line of code to ensure your sites load instantly and run smoothly on any device."
+            img: "seo.webp"
+            imageAlt: "Fast performance"
+            checks:
+              - "Static site generation"
+              - "Optimized build process"
+              - "Minimal JavaScript"
+              - "Lighthouse perfect scores"
+
+          - title: "Community Driven"
+            description: "Our users inspire us every day. We listen to feedback, implement requested features, and build tools that solve real problems for real developers."
+            img: "template.webp"
+            imageAlt: "Community collaboration"
+            checks:
+              - "Open source friendly"
+              - "Regular updates"
+              - "Active support"
+              - "Feature requests welcome"
+
+  - type: "Team"
+    id: "team"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Meet the Team"
+        subtitle: "The people making it happen"
+        members:
+          - name: "Alex Chen"
+            title: "Founder & CEO"
+            bio: "Full-stack developer with 10+ years of experience. Passionate about developer tools and elegant code."
+            image: "/template.webp"
+            socials:
+              - icon: "GithubIcon"
+                href: "https://github.com"
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+
+          - name: "Sarah Johnson"
+            title: "Lead Designer"
+            bio: "UI/UX designer focused on creating beautiful, accessible experiences that users love."
+            image: "/template.webp"
+            socials:
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+              - icon: "InstagramIcon"
+                href: "https://instagram.com"
+
+          - name: "Marcus Rodriguez"
+            title: "Head of Engineering"
+            bio: "Software architect specializing in performance optimization and scalable systems."
+            image: "/template.webp"
+            socials:
+              - icon: "GithubIcon"
+                href: "https://github.com"
+
+          - name: "Emily Park"
+            title: "Developer Relations"
+            bio: "Former developer turned community advocate. Connecting developers with the tools they need."
+            image: "/template.webp"
+            socials:
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+              - icon: "GithubIcon"
+                href: "https://github.com"
+
+  - type: "CallToAction"
+    id: "join-cta"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "sunset"
+      content:
+        tagline: "Join Us"
+        title: "Ready to Build Something Amazing?"
+        subtitle: "Start creating beautiful websites today with Luna Landing"
+        primaryCta:
+          text: "Get Started Free"
+          href: "/signup"
+          target: "_self"
+        secondaryCta:
+          text: "View Pricing"
+          href: "/pricing"
+          target: "_self"
+        note: "No credit card required • 14-day free trial"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

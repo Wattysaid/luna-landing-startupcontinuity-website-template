@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageRenderer from "@/components/PageRenderer.astro";
+import { getPageData } from "@/services/page.service";
+
+const pageData = await getPageData("about");
+---
+
+<Layout meta={pageData.meta}>
+  <PageRenderer pageData={pageData} />
+</Layout>

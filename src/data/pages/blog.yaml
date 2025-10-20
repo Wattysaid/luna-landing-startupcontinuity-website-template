@@ -1,0 +1,259 @@
+meta:
+  title: "Blog - Luna Landing"
+  description: "Insights, tutorials, and updates from the Luna Landing team. Learn about web development, design, and digital marketing."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "blog-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "sunset"
+      content:
+        title: "Insights &"
+        highlightedTitle: "Inspiration"
+        subTitle: "Explore our latest thoughts on web development, design trends, and digital strategy. Learn from our experience and stay ahead of the curve."
+        primaryCta:
+          text: "Latest Articles"
+          href: "#blog-grid"
+          target: "_self"
+        secondaryCta:
+          text: "Subscribe"
+          href: "#newsletter"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#blog-grid"
+
+  - type: "ContentGrid"
+    id: "blog-grid"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Latest Articles"
+        subtitle: "Fresh insights from our team"
+        items:
+          - title: "Getting Started with Astro and YAML"
+            description: "Learn how to build dynamic websites using Astro's static site generation and YAML configuration. Perfect for beginners."
+            image: "/template.webp"
+            imageAlt: "Astro tutorial"
+            category: "Tutorial"
+            author: "Alex Chen"
+            date: "2025-10-15"
+            link: "/blog/getting-started-astro"
+            linkText: "Read Article"
+
+          - title: "10 Landing Page Best Practices for 2025"
+            description: "Discover the latest trends and proven strategies for creating high-converting landing pages that drive results."
+            image: "/seo.webp"
+            imageAlt: "Landing page design"
+            category: "Design"
+            author: "Sarah Johnson"
+            date: "2025-10-12"
+            link: "/blog/landing-page-best-practices"
+            linkText: "Read Article"
+
+          - title: "The Future of Web Development"
+            description: "Exploring emerging technologies and frameworks that are shaping the future of web development."
+            image: "/template.webp"
+            imageAlt: "Future tech"
+            category: "Industry"
+            author: "Marcus Rodriguez"
+            date: "2025-10-08"
+            link: "/blog/future-web-development"
+            linkText: "Read Article"
+
+          - title: "SEO Fundamentals for Developers"
+            description: "A comprehensive guide to search engine optimization from a technical perspective. Boost your site's visibility."
+            image: "/seo.webp"
+            imageAlt: "SEO guide"
+            category: "SEO"
+            author: "Emily Park"
+            date: "2025-10-05"
+            link: "/blog/seo-fundamentals"
+            linkText: "Read Article"
+
+          - title: "Building Accessible Websites"
+            description: "Learn how to create inclusive web experiences that work for everyone. Practical tips and tools included."
+            image: "/template.webp"
+            imageAlt: "Accessibility"
+            category: "Development"
+            author: "Alex Chen"
+            date: "2025-10-01"
+            link: "/blog/accessible-websites"
+            linkText: "Read Article"
+
+          - title: "Performance Optimization Tips"
+            description: "Speed matters. Discover proven techniques to make your website lightning fast and improve user experience."
+            image: "/template.webp"
+            imageAlt: "Performance optimization"
+            category: "Performance"
+            author: "Marcus Rodriguez"
+            date: "2025-09-28"
+            link: "/blog/performance-optimization"
+            linkText: "Read Article"
+        viewAllLink: "/blog/archive"
+        viewAllText: "View All Articles"
+
+  - type: "Steps"
+    id: "content-process"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Content Creation Process"
+        subtitle: "How we produce quality articles"
+        steps:
+          - title: "Research & Planning"
+            description: "We identify trending topics and reader interests through data analysis and community feedback"
+            icon: "FileIcon"
+            details:
+              - "Topic research"
+              - "Keyword analysis"
+              - "Content calendar"
+
+          - title: "Writing & Review"
+            description: "Our team creates well-researched, practical content that provides real value to readers"
+            icon: "DevIcon"
+            details:
+              - "Expert authors"
+              - "Fact-checking"
+              - "Editorial review"
+
+          - title: "Publish & Promote"
+            description: "We share our content across channels and engage with our community for feedback"
+            icon: "CheckIcon"
+            details:
+              - "Multi-channel distribution"
+              - "Social engagement"
+              - "Analytics tracking"
+
+  - type: "Testimonials"
+    id: "reader-feedback"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "What Our Readers Say"
+        subtitle: "Feedback from our community"
+        testimonials:
+          - quote: "The tutorials on this blog helped me land my first web development job. Clear, practical, and up-to-date!"
+            name: "James Wilson"
+            title: "Junior Developer"
+            rating: 5
+
+          - quote: "I follow dozens of dev blogs, but Luna Landing's content is consistently high-quality and relevant."
+            name: "Maria Garcia"
+            title: "Senior Engineer"
+            rating: 5
+
+          - quote: "Great mix of technical depth and practical advice. The SEO guide was particularly helpful."
+            name: "David Kim"
+            title: "Marketing Manager"
+            rating: 5
+
+  - type: "Newsletter"
+    id: "newsletter"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "midnight"
+      content:
+        title: "Never Miss an Article"
+        description: "Get our latest blog posts delivered straight to your inbox. Join 5,000+ subscribers."
+        placeholder: "Enter your email address"
+        buttonText: "Subscribe Now"
+        formAction: "/api/newsletter"
+        formMethod: "POST"
+        disclaimer: "We send 1-2 emails per week. Unsubscribe anytime."
+        benefits:
+          - "Weekly roundup"
+          - "Exclusive content"
+          - "Early access"
+          - "No spam"
+        icon: true
+
+  - type: "CallToAction"
+    id: "work-with-us"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "forest"
+      content:
+        tagline: "Need Help?"
+        title: "Work With Our Team"
+        subtitle: "From landing pages to full applications, we can help bring your project to life"
+        primaryCta:
+          text: "View Our Services"
+          href: "/services"
+          target: "_self"
+        secondaryCta:
+          text: "Get a Quote"
+          href: "/contact"
+          target: "_self"
+        note: "Free consultation available"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

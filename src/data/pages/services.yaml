@@ -1,0 +1,287 @@
+meta:
+  title: "Our Services - Luna Landing"
+  description: "Discover our comprehensive web development services. From custom landing pages to full-stack applications."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "services-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "forest"
+      content:
+        title: "Services That"
+        highlightedTitle: "Deliver Results"
+        subTitle: "Comprehensive solutions for modern web development. From concept to deployment, we've got you covered."
+        primaryCta:
+          text: "View Our Work"
+          href: "#portfolio"
+          target: "_self"
+        secondaryCta:
+          text: "Get a Quote"
+          href: "/contact"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#services-grid"
+
+  - type: "Services"
+    id: "services-grid"
+    enabled: true
+    config:
+      layout:
+        columns: 3
+        spacing: "xl"
+      content:
+        title: "What We Offer"
+        services:
+          - title: "Landing Pages"
+            icon: "PlanetIcon"
+            description: "Beautiful, high-converting landing pages built with modern frameworks"
+          - title: "Web Applications"
+            icon: "DevIcon"
+            description: "Full-stack applications with cutting-edge technology"
+          - title: "E-commerce Solutions"
+            icon: "ConfigIcon"
+            description: "Complete online stores with payment integration"
+          - title: "SEO Optimization"
+            icon: "FileIcon"
+            description: "Improve your search rankings and organic traffic"
+          - title: "Consulting"
+            icon: "CheckIcon"
+            description: "Strategic guidance for your digital projects"
+          - title: "Maintenance & Support"
+            icon: "DevIcon"
+            description: "Ongoing support to keep your site running smoothly"
+
+  - type: "Features2"
+    id: "service-details"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Approach"
+        subtitle: "How we deliver exceptional results"
+        features:
+          - title: "Discovery & Planning"
+            description: "We start every project by understanding your goals, audience, and requirements. Through collaborative workshops and research, we create a roadmap for success."
+            image: "/template.webp"
+            imageAlt: "Planning session"
+            icon: "FileIcon"
+            badge: "Step 1"
+            benefits:
+              - "Stakeholder interviews"
+              - "Competitive analysis"
+              - "Technical requirements"
+              - "Project timeline"
+            link: "/contact"
+            linkText: "Start Your Project"
+
+          - title: "Design & Development"
+            description: "Our designers and developers work in tandem to create beautiful, functional solutions. We follow best practices and use modern tools to ensure quality."
+            image: "/seo.webp"
+            imageAlt: "Design and development"
+            icon: "DevIcon"
+            badge: "Step 2"
+            benefits:
+              - "Responsive design"
+              - "Clean code"
+              - "Performance optimized"
+              - "Accessibility standards"
+
+          - title: "Testing & Launch"
+            description: "Before going live, we rigorously test every feature. Once launched, we monitor performance and make adjustments to ensure optimal results."
+            image: "/template.webp"
+            imageAlt: "Testing and deployment"
+            icon: "CheckIcon"
+            badge: "Step 3"
+            benefits:
+              - "Quality assurance"
+              - "Browser testing"
+              - "Performance monitoring"
+              - "Post-launch support"
+
+  - type: "Comparison"
+    id: "service-packages"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Service Packages"
+        description: "Choose the package that fits your needs"
+        featureColumnLabel: "What's Included"
+        options:
+          - name: "Starter"
+            price: "$2,500"
+            description: "Perfect for small businesses"
+            badge: "Popular"
+            cta:
+              text: "Get Started"
+              href: "/contact"
+              primary: false
+          - name: "Professional"
+            price: "$7,500"
+            description: "For growing companies"
+            badge: "Best Value"
+            cta:
+              text: "Choose Pro"
+              href: "/contact"
+              primary: true
+          - name: "Enterprise"
+            price: "Custom"
+            description: "For large organizations"
+            cta:
+              text: "Contact Sales"
+              href: "/contact"
+              primary: false
+        features:
+          - name: "Pages Included"
+            values: ["3 pages", "10 pages", "Unlimited"]
+          - name: "Custom Design"
+            values: [true, true, true]
+          - name: "Responsive Development"
+            values: [true, true, true]
+          - name: "SEO Optimization"
+            values: [false, true, true]
+          - name: "Content Management"
+            values: [false, true, true]
+          - name: "E-commerce Integration"
+            values: [false, false, true]
+          - name: "Custom Features"
+            values: [false, "Limited", "Unlimited"]
+          - name: "Support Period"
+            values: ["30 days", "90 days", "1 year"]
+          - name: "Revisions"
+            values: ["2 rounds", "5 rounds", "Unlimited"]
+        showCtas: true
+        note: "All packages include hosting setup and deployment"
+
+  - type: "Testimonials"
+    id: "testimonials"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Client Success Stories"
+        subtitle: "See what our clients have to say"
+        testimonials:
+          - quote: "Luna Landing transformed our online presence. The team was professional, responsive, and delivered exactly what we needed."
+            name: "Michael Chen"
+            title: "CEO"
+            company: "TechStart Inc"
+            rating: 5
+          - quote: "The best investment we made this year. Our conversion rate doubled after launching the new landing page."
+            name: "Sarah Williams"
+            title: "Marketing Director"
+            company: "Growth Co"
+            rating: 5
+          - quote: "Exceptional work from start to finish. They understood our vision and brought it to life beautifully."
+            name: "David Rodriguez"
+            title: "Founder"
+            company: "Creative Studio"
+            rating: 5
+
+  - type: "FAQ"
+    id: "faq"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Frequently Asked Questions"
+        description: "Got questions? We've got answers"
+        faqs:
+          - question: "How long does a typical project take?"
+            answer: "Project timelines vary based on scope. A simple landing page takes 2-3 weeks, while more complex applications can take 2-3 months. We'll provide a detailed timeline during the discovery phase."
+            icon: "CheckIcon"
+          - question: "Do you offer ongoing maintenance?"
+            answer: "Yes! We offer maintenance packages to keep your site updated, secure, and running smoothly. This includes updates, backups, and technical support."
+          - question: "What technologies do you use?"
+            answer: "We use modern, proven technologies including Astro, React, TypeScript, and Tailwind CSS. We choose the best tools for each project based on your specific needs."
+          - question: "Can you work with our existing design?"
+            answer: "Absolutely! We can work with your existing brand guidelines and designs, or we can create a completely new look for you."
+          - question: "What if I need changes after launch?"
+            answer: "All packages include a support period with revision rounds. After that, we offer flexible maintenance plans or hourly rates for additional work."
+          - question: "Do you provide hosting?"
+            answer: "We can set up and deploy your site on modern hosting platforms like Vercel or Netlify, or work with your existing hosting provider."
+
+  - type: "CallToAction"
+    id: "cta"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "midnight"
+      content:
+        tagline: "Ready to Get Started?"
+        title: "Let's Build Something Great Together"
+        subtitle: "Schedule a free consultation to discuss your project"
+        primaryCta:
+          text: "Contact Us Today"
+          href: "/contact"
+          target: "_self"
+        secondaryCta:
+          text: "View Our Work"
+          href: "#portfolio"
+          target: "_self"
+        note: "Free consultation • No obligation • Fast response"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

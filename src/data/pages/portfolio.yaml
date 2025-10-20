@@ -1,0 +1,303 @@
+meta:
+  title: "Portfolio - Luna Landing"
+  description: "Explore our portfolio of stunning websites and applications. See what we've built for clients around the world."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "full"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "Portfolio"
+          href: "/portfolio"
+        - label: "Services"
+          href: "/services"
+        - label: "About"
+          href: "/about"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "portfolio-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "midnight"
+      content:
+        title: "Our"
+        highlightedTitle: "Portfolio"
+        subTitle: "Explore our collection of beautiful, high-performing websites and applications. Each project is crafted with attention to detail and built for success."
+        primaryCta:
+          text: "View Projects"
+          href: "#gallery"
+          target: "_self"
+        secondaryCta:
+          text: "Start Your Project"
+          href: "/contact"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#gallery"
+
+  - type: "Gallery"
+    id: "gallery"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Featured Projects"
+        description: "A selection of our recent work"
+        layout: "grid"
+        columns: 3
+        images:
+          - src: "/template.webp"
+            alt: "E-commerce platform"
+            title: "Modern E-commerce Platform"
+            description: "Full-featured online store with custom checkout"
+          - src: "/seo.webp"
+            alt: "SaaS application"
+            title: "SaaS Dashboard"
+            description: "Real-time analytics and reporting platform"
+          - src: "/template.webp"
+            alt: "Corporate website"
+            title: "Corporate Website"
+            description: "Enterprise-level site with CMS integration"
+          - src: "/seo.webp"
+            alt: "Mobile app"
+            title: "Mobile Application"
+            description: "Cross-platform mobile experience"
+          - src: "/template.webp"
+            alt: "Landing page"
+            title: "Product Landing Page"
+            description: "High-converting landing page design"
+          - src: "/seo.webp"
+            alt: "Portfolio site"
+            title: "Creative Portfolio"
+            description: "Stunning portfolio for a design agency"
+          - src: "/template.webp"
+            alt: "Blog platform"
+            title: "Blog Platform"
+            description: "Content-first publishing platform"
+          - src: "/seo.webp"
+            alt: "Real estate"
+            title: "Real Estate Listings"
+            description: "Property search and management system"
+          - src: "/template.webp"
+            alt: "Restaurant"
+            title: "Restaurant Website"
+            description: "Online ordering and reservation system"
+        loadMoreText: "Load More Projects"
+
+  - type: "Stats"
+    id: "portfolio-stats"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "light"
+      content:
+        title: "Portfolio Highlights"
+        subtitle: "Our impact in numbers"
+        stats:
+          - amount: "150+"
+            label: "Projects Completed"
+            description: "Since 2020"
+            icon: "CheckIcon"
+          - amount: "45+"
+            label: "Happy Clients"
+            description: "Worldwide"
+            icon: "PlanetIcon"
+          - amount: "95%"
+            label: "Client Retention"
+            description: "Long-term partnerships"
+            icon: "CheckIcon"
+          - amount: "4.9/5"
+            label: "Average Rating"
+            description: "Client satisfaction"
+            icon: "CheckIcon"
+
+  - type: "Adventajes"
+    id: "project-types"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Project Types We Excel At"
+        adventajes:
+          - title: "E-commerce Solutions"
+            description: "We build powerful online stores that convert visitors into customers. From product catalogs to checkout flows, we handle every detail."
+            img: "template.webp"
+            imageAlt: "E-commerce example"
+            checks:
+              - "Custom shopping carts"
+              - "Payment gateway integration"
+              - "Inventory management"
+              - "Mobile-optimized checkout"
+              - "SEO for products"
+
+          - title: "SaaS Applications"
+            description: "Complex web applications that scale. We specialize in building intuitive dashboards and robust backend systems."
+            img: "seo.webp"
+            imageAlt: "SaaS dashboard"
+            checks:
+              - "User authentication"
+              - "Real-time data sync"
+              - "API integrations"
+              - "Subscription billing"
+              - "Analytics & reporting"
+
+          - title: "Landing Pages"
+            description: "High-converting landing pages designed to drive results. Every element is optimized for maximum impact."
+            img: "template.webp"
+            imageAlt: "Landing page design"
+            checks:
+              - "A/B testing ready"
+              - "Fast loading times"
+              - "Mobile responsive"
+              - "Lead capture forms"
+              - "Analytics integration"
+
+  - type: "Testimonials"
+    id: "client-reviews"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "What Our Clients Say"
+        subtitle: "Don't just take our word for it"
+        testimonials:
+          - quote: "Luna Landing delivered our e-commerce site ahead of schedule and under budget. Sales increased 300% in the first quarter!"
+            name: "Michael Roberts"
+            title: "CEO"
+            company: "ShopNow Inc"
+            rating: 5
+
+          - quote: "The team's attention to detail and communication throughout the project was outstanding. Our new site is beautiful and fast."
+            name: "Lisa Anderson"
+            title: "Marketing Director"
+            company: "TechCorp"
+            rating: 5
+
+          - quote: "Best web development partner we've worked with. They truly understood our vision and made it a reality."
+            name: "James Wilson"
+            title: "Founder"
+            company: "StartupXYZ"
+            rating: 5
+
+          - quote: "Professional, creative, and technically excellent. Our landing page conversion rate tripled after the redesign."
+            name: "Sarah Chen"
+            title: "Head of Growth"
+            company: "GrowthHub"
+            rating: 5
+
+          - quote: "From concept to launch, the process was smooth. The final product exceeded our expectations in every way."
+            name: "David Martinez"
+            title: "Product Manager"
+            company: "InnovateCo"
+            rating: 5
+
+          - quote: "They built our SaaS platform and it's been rock solid. Fast, scalable, and our users love the interface."
+            name: "Emily Park"
+            title: "CTO"
+            company: "CloudSoft"
+            rating: 5
+
+  - type: "LogoCloud"
+    id: "clients"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "light"
+      content:
+        title: "Trusted by Leading Brands"
+        description: "We've had the privilege of working with these amazing companies"
+        layout: "default"
+        logos:
+          - name: "TechCorp"
+            image: "/template.webp"
+            alt: "TechCorp logo"
+            link: "https://example.com"
+            newTab: true
+          - name: "ShopNow"
+            image: "/template.webp"
+            alt: "ShopNow logo"
+          - name: "GrowthHub"
+            image: "/template.webp"
+            alt: "GrowthHub logo"
+          - name: "CloudSoft"
+            image: "/template.webp"
+            alt: "CloudSoft logo"
+          - name: "InnovateCo"
+            image: "/template.webp"
+            alt: "InnovateCo logo"
+          - name: "StartupXYZ"
+            image: "/template.webp"
+            alt: "StartupXYZ logo"
+
+  - type: "CallToAction"
+    id: "start-project"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "ocean"
+      content:
+        tagline: "Ready to Start?"
+        title: "Let's Build Your Next Project"
+        subtitle: "Join our portfolio of successful clients. Get a free consultation today."
+        primaryCta:
+          text: "Start Your Project"
+          href: "/contact"
+          target: "_self"
+        secondaryCta:
+          text: "View Pricing"
+          href: "/pricing"
+          target: "_self"
+        note: "Free consultation • Fast turnaround • Satisfaction guaranteed"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "Portfolio"
+          href: "/portfolio"
+        - label: "Services"
+          href: "/services"
+        - label: "About"
+          href: "/about"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

@@ -1,0 +1,240 @@
+meta:
+  title: "Contact Us - Luna Landing"
+  description: "Get in touch with our team. We're here to answer your questions and help bring your vision to life."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "contact-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "lavender"
+      content:
+        title: "Let's Talk"
+        highlightedTitle: "About Your Project"
+        subTitle: "Have a question or ready to start your project? We'd love to hear from you. Our team typically responds within 24 hours."
+        primaryCta:
+          text: "Send Us a Message"
+          href: "#contact-form"
+          target: "_self"
+        secondaryCta:
+          text: "Schedule a Call"
+          href: "https://calendly.com"
+          target: "_blank"
+        showScrollButton: true
+        scrollTarget: "#contact-form"
+
+  - type: "ContactForm"
+    id: "contact-form"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Get In Touch"
+        subtitle: "Fill out the form below and we'll get back to you shortly"
+        contactInfo:
+          title: "Contact Information"
+          description: "Prefer to reach out directly? Use any of the methods below"
+          email: "hello@lunalanding.dev"
+          phone: "+1 (555) 123-4567"
+          address: "123 Web Street, San Francisco, CA 94102"
+        fields:
+          - name: "name"
+            label: "Full Name"
+            type: "text"
+            required: true
+            placeholder: "John Doe"
+          - name: "email"
+            label: "Email Address"
+            type: "email"
+            required: true
+            placeholder: "john@example.com"
+          - name: "phone"
+            label: "Phone Number"
+            type: "tel"
+            required: false
+            placeholder: "+1 (555) 123-4567"
+          - name: "service"
+            label: "Service Interested In"
+            type: "select"
+            required: true
+            options:
+              - value: "landing-page"
+                label: "Landing Page"
+              - value: "web-app"
+                label: "Web Application"
+              - value: "ecommerce"
+                label: "E-commerce"
+              - value: "consulting"
+                label: "Consulting"
+              - value: "other"
+                label: "Other"
+          - name: "budget"
+            label: "Budget Range"
+            type: "select"
+            required: false
+            options:
+              - value: "under-5k"
+                label: "Under $5,000"
+              - value: "5k-10k"
+                label: "$5,000 - $10,000"
+              - value: "10k-25k"
+                label: "$10,000 - $25,000"
+              - value: "25k-plus"
+                label: "$25,000+"
+          - name: "message"
+            label: "Project Details"
+            type: "textarea"
+            required: true
+            rows: 6
+            placeholder: "Tell us about your project, goals, and timeline..."
+        formAction: "/api/contact"
+        formMethod: "POST"
+        submitText: "Send Message"
+
+  - type: "Stats"
+    id: "response-stats"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      content:
+        title: "Why Contact Us?"
+        stats:
+          - amount: "< 24hrs"
+            label: "Response Time"
+            description: "We reply fast"
+          - amount: "100%"
+            label: "Free Consultation"
+            description: "No obligation"
+          - amount: "500+"
+            label: "Happy Clients"
+            description: "Worldwide"
+          - amount: "4.9/5"
+            label: "Client Rating"
+            description: "Average score"
+
+  - type: "FAQ"
+    id: "contact-faq"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Before You Reach Out"
+        description: "Quick answers to common questions"
+        faqs:
+          - question: "What information should I include in my message?"
+            answer: "Tell us about your project goals, timeline, budget range, and any specific requirements. The more details you provide, the better we can help you."
+          - question: "How quickly will you respond?"
+            answer: "We aim to respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly."
+          - question: "Do you offer free consultations?"
+            answer: "Yes! We offer a free 30-minute consultation to discuss your project and see if we're a good fit."
+          - question: "What if I'm not sure what I need?"
+            answer: "That's okay! Our consultation call will help clarify your needs and recommend the best approach for your goals."
+
+  - type: "LogoCloud"
+    id: "trusted-by"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Trusted By Industry Leaders"
+        description: "Join hundreds of companies who chose Luna Landing"
+        layout: "compact"
+        logos:
+          - name: "TechStart"
+            image: "/template.webp"
+            alt: "TechStart logo"
+          - name: "Growth Co"
+            image: "/template.webp"
+          - name: "Creative Studio"
+            image: "/template.webp"
+          - name: "Digital Agency"
+            image: "/template.webp"
+          - name: "Innovation Hub"
+            image: "/template.webp"
+          - name: "Future Corp"
+            image: "/template.webp"
+
+  - type: "Newsletter"
+    id: "newsletter"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "ocean"
+      content:
+        title: "Stay Updated"
+        description: "Subscribe to our newsletter for web development tips, industry insights, and company updates"
+        placeholder: "Enter your email address"
+        buttonText: "Subscribe"
+        formAction: "/api/newsletter"
+        formMethod: "POST"
+        disclaimer: "We respect your privacy. Unsubscribe anytime."
+        benefits:
+          - "Weekly tips & tricks"
+          - "Industry insights"
+          - "Early access to features"
+          - "No spam, ever"
+        icon: true
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

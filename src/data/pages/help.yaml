@@ -1,0 +1,274 @@
+meta:
+  title: "Help Center - Luna Landing"
+  description: "Get help with Luna Landing. Find answers, tutorials, and support resources."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "Help"
+          href: "/help"
+        - label: "FAQ"
+          href: "#faq"
+        - label: "Guides"
+          href: "#guides"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "help-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "lavender"
+      content:
+        title: "How Can"
+        highlightedTitle: "We Help?"
+        subTitle: "Find answers to common questions, explore our guides, or reach out to our support team. We're here to help you succeed."
+        primaryCta:
+          text: "Browse FAQs"
+          href: "#faq"
+          target: "_self"
+        secondaryCta:
+          text: "Contact Support"
+          href: "/contact"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#quick-links"
+
+  - type: "Services"
+    id: "quick-links"
+    enabled: true
+    config:
+      layout:
+        columns: 3
+        spacing: "xl"
+      content:
+        title: "Quick Links"
+        services:
+          - title: "Getting Started"
+            icon: "DevIcon"
+            description: "New to Luna Landing? Start here with our beginner's guide"
+          - title: "Documentation"
+            icon: "FileIcon"
+            description: "Complete technical documentation and API references"
+          - title: "Video Tutorials"
+            icon: "PlanetIcon"
+            description: "Step-by-step video guides for common tasks"
+          - title: "Community Forum"
+            icon: "ConfigIcon"
+            description: "Connect with other users and share knowledge"
+          - title: "Feature Requests"
+            icon: "CheckIcon"
+            description: "Suggest new features and vote on existing ideas"
+          - title: "Contact Support"
+            icon: "DevIcon"
+            description: "Get help from our support team (response within 24 hours)"
+
+  - type: "Steps"
+    id: "guides"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Popular Guides"
+        subtitle: "Step-by-step tutorials for common tasks"
+        steps:
+          - title: "Creating Your First Page"
+            description: "Learn how to create a new page using YAML configuration"
+            icon: "FileIcon"
+            details:
+              - "Create a new YAML file in src/data/pages/"
+              - "Define your page meta and layout"
+              - "Add components from the library"
+              - "Create the corresponding .astro page file"
+              - "Build and preview your page"
+
+          - title: "Customizing Themes"
+            description: "Change the look and feel of your site with themes and variants"
+            icon: "ConfigIcon"
+            details:
+              - "Choose from 6 built-in themes"
+              - "Apply themes to individual components"
+              - "Use variants (default, dark, light, gradient, outline)"
+              - "Override with custom CSS variables"
+              - "Create your own theme"
+
+          - title: "Adding Custom Components"
+            description: "Extend Luna Landing with your own components"
+            icon: "DevIcon"
+            details:
+              - "Create component in src/sections/"
+              - "Define TypeScript interfaces"
+              - "Register in component-registry.ts"
+              - "Add to page.interface.ts types"
+              - "Use in your YAML files"
+
+          - title: "Deploying to Production"
+            description: "Deploy your site to Vercel, Netlify, or other platforms"
+            icon: "CheckIcon"
+            details:
+              - "Connect your git repository"
+              - "Configure build settings"
+              - "Set up environment variables"
+              - "Enable automatic deployments"
+              - "Configure custom domain"
+
+  - type: "FAQ"
+    id: "faq"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Frequently Asked Questions"
+        description: "Find quick answers to common questions"
+        faqs:
+          - question: "How do I get started with Luna Landing?"
+            answer: "Clone our GitHub repository, run 'pnpm install' to install dependencies, then 'pnpm dev' to start the development server. Check out our Getting Started guide for detailed instructions."
+            icon: "CheckIcon"
+
+          - question: "Do I need to know coding?"
+            answer: "Basic familiarity with YAML is helpful, but you don't need to write code. All content is managed through simple YAML files. Our documentation includes plenty of examples to get you started."
+
+          - question: "Can I use my own custom domain?"
+            answer: "Yes! Luna Landing works with any static hosting provider. You can easily configure custom domains on platforms like Vercel, Netlify, or Cloudflare Pages."
+
+          - question: "How do I add new components?"
+            answer: "You can use our 21 built-in components, or create custom ones. Check our 'Adding Custom Components' guide for step-by-step instructions."
+
+          - question: "Is Luna Landing free?"
+            answer: "Luna Landing is open source and free to use. You only pay for hosting, which can be free on platforms like Vercel or Netlify for small sites."
+
+          - question: "Can I migrate my existing site?"
+            answer: "Yes! You can recreate your existing site's content using our YAML configuration. We provide migration guides for common platforms in our documentation."
+
+          - question: "How do I customize the styling?"
+            answer: "Use our built-in themes and variants, or override CSS custom properties. For advanced customization, you can modify the Tailwind configuration or add custom CSS."
+
+          - question: "What's the difference between themes and variants?"
+            answer: "Themes control colors (ocean, sunset, forest, etc.), while variants control visual style (default, dark, light, gradient, outline). You can mix and match them."
+
+          - question: "How do I optimize for SEO?"
+            answer: "Luna Landing includes built-in SEO features: automatic meta tags, structured data (JSON-LD), sitemaps, and robots.txt. Configure these in your page YAML files."
+
+          - question: "Can I use Luna Landing for e-commerce?"
+            answer: "Luna Landing is designed for content sites and landing pages. For e-commerce, you'd need to integrate with external services like Shopify or build custom functionality."
+
+          - question: "How do I report bugs or request features?"
+            answer: "Visit our GitHub repository to report bugs or request features. You can also join our community forum to discuss ideas with other users."
+
+          - question: "Is there a support team?"
+            answer: "We provide community support through our forum and GitHub. For priority support, check out our paid plans on the pricing page."
+
+  - type: "ContentGrid"
+    id: "resources"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Helpful Resources"
+        subtitle: "Guides, tutorials, and documentation"
+        items:
+          - title: "Complete Documentation"
+            description: "Comprehensive docs covering every feature and component"
+            category: "Docs"
+            link: "/docs"
+            linkText: "Read Docs"
+
+          - title: "Component Reference"
+            description: "Detailed guide to all 21 components with examples"
+            category: "Reference"
+            link: "/docs/components"
+            linkText: "View Components"
+
+          - title: "YAML Configuration Guide"
+            description: "Learn how to configure pages using YAML"
+            category: "Tutorial"
+            link: "/docs/yaml"
+            linkText: "Read Guide"
+
+          - title: "Theme Customization"
+            description: "Create custom themes and styles for your site"
+            category: "Tutorial"
+            link: "/docs/themes"
+            linkText: "Learn More"
+
+          - title: "Deployment Guide"
+            description: "Deploy to Vercel, Netlify, and other platforms"
+            category: "Guide"
+            link: "/docs/deployment"
+            linkText: "View Guide"
+
+          - title: "Best Practices"
+            description: "Tips and tricks for building better sites"
+            category: "Guide"
+            link: "/blog/best-practices"
+            linkText: "Read Article"
+
+  - type: "CallToAction"
+    id: "still-need-help"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "sunset"
+      content:
+        tagline: "Still Need Help?"
+        title: "Get in Touch With Our Team"
+        subtitle: "Can't find what you're looking for? Our support team is here to help."
+        primaryCta:
+          text: "Contact Support"
+          href: "/contact"
+          target: "_self"
+        secondaryCta:
+          text: "Join Community"
+          href: "https://community.lunalanding.dev"
+          target: "_blank"
+        note: "Average response time: 24 hours"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "Help"
+          href: "/help"
+        - label: "Docs"
+          href: "/docs"
+        - label: "FAQ"
+          href: "/help#faq"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

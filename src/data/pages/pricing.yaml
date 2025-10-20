@@ -1,0 +1,297 @@
+meta:
+  title: "Pricing - Luna Landing"
+  description: "Simple, transparent pricing for Luna Landing. Choose the plan that fits your needs. No hidden fees."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "pricing-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "midnight"
+      content:
+        title: "Simple,"
+        highlightedTitle: "Transparent Pricing"
+        subTitle: "Choose the plan that's right for you. All plans include our core features with 14-day free trial. No credit card required."
+        primaryCta:
+          text: "Start Free Trial"
+          href: "/signup"
+          target: "_self"
+        secondaryCta:
+          text: "Compare Plans"
+          href: "#comparison"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#pricing-tiers"
+
+  - type: "Pricing"
+    id: "pricing-tiers"
+    enabled: true
+    config:
+      layout:
+        columns: 3
+        spacing: "xl"
+      content:
+        title: "Choose Your Plan"
+        tiers:
+          - title: "Starter"
+            description: "Perfect for individuals and small projects"
+            price:
+              amount: "$19"
+              period: "/month"
+            features:
+              - "Up to 3 projects"
+              - "20 components"
+              - "Basic themes"
+              - "Community support"
+              - "1 GB storage"
+              - "SSL certificate"
+            cta: "Start Free Trial"
+            ctaHref: "/signup?plan=starter"
+
+          - title: "Professional"
+            description: "For growing businesses and teams"
+            price:
+              amount: "$49"
+              period: "/month"
+            features:
+              - "Unlimited projects"
+              - "All components"
+              - "Premium themes"
+              - "Priority support"
+              - "10 GB storage"
+              - "Custom domain"
+              - "Advanced analytics"
+              - "Team collaboration"
+            cta: "Start Free Trial"
+            ctaHref: "/signup?plan=professional"
+
+          - title: "Enterprise"
+            description: "For large organizations with custom needs"
+            price:
+              amount: "Custom"
+              period: ""
+            features:
+              - "Everything in Pro"
+              - "Custom components"
+              - "White-label solution"
+              - "Dedicated support"
+              - "Unlimited storage"
+              - "SLA guarantee"
+              - "Custom integrations"
+              - "Training & onboarding"
+            cta: "Contact Sales"
+            ctaHref: "/contact"
+
+  - type: "Comparison"
+    id: "comparison"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Detailed Feature Comparison"
+        description: "See exactly what's included in each plan"
+        featureColumnLabel: "Features"
+        options:
+          - name: "Starter"
+            price: "$19/mo"
+            description: "For individuals"
+            cta:
+              text: "Choose Starter"
+              href: "/signup?plan=starter"
+              primary: false
+          - name: "Professional"
+            price: "$49/mo"
+            description: "For teams"
+            badge: "Most Popular"
+            cta:
+              text: "Choose Pro"
+              href: "/signup?plan=professional"
+              primary: true
+          - name: "Enterprise"
+            price: "Custom"
+            description: "For organizations"
+            cta:
+              text: "Contact Sales"
+              href: "/contact"
+              primary: false
+        features:
+          - name: "Projects"
+            values: ["3 projects", "Unlimited", "Unlimited"]
+          - name: "Components"
+            values: ["20 components", "All components", "All + Custom"]
+          - name: "Themes"
+            values: ["3 themes", "All themes", "Custom themes"]
+          - name: "Storage"
+            values: ["1 GB", "10 GB", "Unlimited"]
+          - name: "Custom Domain"
+            values: [false, true, true]
+          - name: "SSL Certificate"
+            values: [true, true, true]
+          - name: "Analytics"
+            values: ["Basic", "Advanced", "Advanced + Custom"]
+          - name: "Team Members"
+            values: ["1 user", "5 users", "Unlimited"]
+          - name: "Support"
+            values: ["Community", "Priority", "Dedicated"]
+          - name: "SLA"
+            values: [false, false, "99.9%"]
+          - name: "White-label"
+            values: [false, false, true]
+          - name: "Training"
+            values: [false, "Self-service", "Personalized"]
+        showCtas: true
+        note: "All plans include 14-day free trial • Cancel anytime"
+
+  - type: "FAQ"
+    id: "pricing-faq"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Pricing FAQs"
+        description: "Common questions about our pricing"
+        faqs:
+          - question: "Is there really a free trial?"
+            answer: "Yes! All plans come with a 14-day free trial. No credit card required to start. You can explore all features and decide if it's right for you."
+          - question: "Can I change plans later?"
+            answer: "Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences."
+          - question: "What payment methods do you accept?"
+            answer: "We accept all major credit cards (Visa, MasterCard, American Express) and PayPal. Enterprise customers can also pay by invoice."
+          - question: "Do you offer discounts for annual billing?"
+            answer: "Yes! Save 20% when you pay annually. That's like getting 2 months free on the Professional plan."
+          - question: "What happens if I exceed my project limit?"
+            answer: "You'll receive a notification and can either upgrade your plan or archive old projects. We'll never surprise you with charges."
+          - question: "Can I cancel anytime?"
+            answer: "Yes, you can cancel your subscription at any time. Your projects will remain accessible until the end of your billing period."
+
+  - type: "Stats"
+    id: "social-proof"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      content:
+        title: "Trusted by Thousands"
+        stats:
+          - amount: "10,000+"
+            label: "Active Users"
+            description: "And growing daily"
+          - amount: "4.9/5"
+            label: "Customer Rating"
+            description: "Based on 500+ reviews"
+          - amount: "99.9%"
+            label: "Uptime"
+            description: "Last 12 months"
+          - amount: "24hrs"
+            label: "Support Response"
+            description: "Average time"
+
+  - type: "Testimonials"
+    id: "customer-reviews"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "What Our Customers Say"
+        subtitle: "Real feedback from real users"
+        testimonials:
+          - quote: "The Professional plan has everything we need. The pricing is fair and the support is exceptional."
+            name: "Jennifer Martinez"
+            title: "Product Manager"
+            company: "TechFlow"
+            rating: 5
+
+          - quote: "Started with the free trial and upgraded to Pro within a week. Best investment for our marketing team."
+            name: "Robert Chang"
+            title: "Marketing Director"
+            company: "GrowthLabs"
+            rating: 5
+
+          - quote: "Enterprise plan gives us the flexibility and support we need for our 50+ person team."
+            name: "Amanda Foster"
+            title: "VP of Engineering"
+            company: "DataCorp"
+            rating: 5
+
+  - type: "CallToAction"
+    id: "final-cta"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "ocean"
+      content:
+        tagline: "Ready to Get Started?"
+        title: "Start Your Free Trial Today"
+        subtitle: "No credit card required. Cancel anytime. Full access to all features for 14 days."
+        primaryCta:
+          text: "Start Free Trial"
+          href: "/signup"
+          target: "_self"
+        secondaryCta:
+          text: "Talk to Sales"
+          href: "/contact"
+          target: "_self"
+        note: "Join 10,000+ users building amazing websites"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "About"
+          href: "/about"
+        - label: "Services"
+          href: "/services"
+        - label: "Pricing"
+          href: "/pricing"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"

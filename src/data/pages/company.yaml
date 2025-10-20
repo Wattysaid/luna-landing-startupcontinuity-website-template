@@ -1,0 +1,348 @@
+meta:
+  title: "Company - Luna Landing"
+  description: "Learn about Luna Landing's mission, values, team, and the story behind our success."
+  lang: "en"
+  charset: "UTF-8"
+
+layout:
+  containerWidth: "3/4"
+
+header:
+  type: "Header"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      links:
+        - label: "Home"
+          href: "/"
+        - label: "Company"
+          href: "/company"
+        - label: "Team"
+          href: "#team"
+        - label: "Careers"
+          href: "#careers"
+        - label: "Contact"
+          href: "/contact"
+
+components:
+  - type: "Hero"
+    id: "company-hero"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "gradient"
+        theme: "forest"
+      content:
+        title: "Meet"
+        highlightedTitle: "Luna Landing"
+        subTitle: "We're a passionate team of developers, designers, and creators building tools that empower businesses to succeed online."
+        primaryCta:
+          text: "Meet the Team"
+          href: "#team"
+          target: "_self"
+        secondaryCta:
+          text: "Join Us"
+          href: "#careers"
+          target: "_self"
+        showScrollButton: true
+        scrollTarget: "#mission"
+
+  - type: "Content"
+    id: "mission"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Mission & Values"
+        blocks:
+          - tagline: "Our Mission"
+            title: "Simplifying Web Development"
+            description: "We believe that creating beautiful, functional websites should be accessible to everyone. Our mission is to build tools that combine simplicity with power, enabling creators to bring their visions to life.\n\nSince our founding in 2020, we've helped thousands of businesses launch successful websites. We're committed to continuous innovation and putting our users first in everything we do."
+            image: "/template.webp"
+            imageAlt: "Team working together"
+            layout: "two-column"
+            features:
+              - title: "User-Centric Design"
+                description: "Every decision starts with user needs"
+                icon: "CheckIcon"
+              - title: "Continuous Innovation"
+                description: "Always improving, always evolving"
+                icon: "DevIcon"
+              - title: "Open Communication"
+                description: "Transparent and honest with our community"
+                icon: "PlanetIcon"
+
+          - quote: "Our goal is to make web development so simple that anyone can build something amazing."
+            quoteAuthor: "Alex Chen, Founder & CEO"
+            layout: "single-column"
+
+  - type: "Stats"
+    id: "company-stats"
+    enabled: true
+    config:
+      layout:
+        spacing: "large"
+      style:
+        variant: "light"
+      content:
+        title: "Luna Landing in Numbers"
+        stats:
+          - amount: "2020"
+            label: "Founded"
+            description: "Start of our journey"
+          - amount: "25+"
+            label: "Team Members"
+            description: "And growing"
+          - amount: "10K+"
+            label: "Active Users"
+            description: "Worldwide"
+          - amount: "15"
+            label: "Countries"
+            description: "Global presence"
+
+  - type: "Team"
+    id: "team"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Leadership Team"
+        subtitle: "The people driving our vision forward"
+        members:
+          - name: "Alex Chen"
+            title: "Founder & CEO"
+            bio: "Full-stack developer with 15+ years of experience. Previously led engineering teams at major tech companies."
+            image: "/template.webp"
+            socials:
+              - icon: "GithubIcon"
+                href: "https://github.com"
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+
+          - name: "Sarah Johnson"
+            title: "Head of Design"
+            bio: "Award-winning designer passionate about creating beautiful, accessible experiences. Former design lead at creative agencies."
+            image: "/template.webp"
+            socials:
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+              - icon: "InstagramIcon"
+                href: "https://instagram.com"
+
+          - name: "Marcus Rodriguez"
+            title: "CTO"
+            bio: "Software architect specializing in scalable systems. Built infrastructure for companies serving millions of users."
+            image: "/template.webp"
+            socials:
+              - icon: "GithubIcon"
+                href: "https://github.com"
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+
+          - name: "Emily Park"
+            title: "VP of Product"
+            bio: "Product strategist with a focus on user experience. Formerly at leading SaaS companies."
+            image: "/template.webp"
+            socials:
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+
+          - name: "David Kim"
+            title: "Head of Marketing"
+            bio: "Growth marketer who's helped scale multiple startups from 0 to 1M users."
+            image: "/template.webp"
+            socials:
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+
+          - name: "Lisa Martinez"
+            title: "Head of Customer Success"
+            bio: "Customer advocate ensuring our users get the most value from Luna Landing."
+            image: "/template.webp"
+            socials:
+              - icon: "TwitterIcon"
+                href: "https://twitter.com"
+
+  - type: "Adventajes"
+    id: "culture"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Our Company Culture"
+        adventajes:
+          - title: "Remote-First"
+            description: "We're a fully distributed team across multiple time zones. We believe great work happens when people have flexibility and trust."
+            img: "template.webp"
+            imageAlt: "Remote team collaboration"
+            checks:
+              - "Work from anywhere"
+              - "Flexible hours"
+              - "Async communication"
+              - "Regular team meetups"
+
+          - title: "Growth Mindset"
+            description: "We invest in our team's development through learning budgets, mentorship programs, and opportunities to take on new challenges."
+            img: "seo.webp"
+            imageAlt: "Professional development"
+            checks:
+              - "Learning stipends"
+              - "Conference attendance"
+              - "Internal workshops"
+              - "Career progression"
+
+          - title: "Work-Life Balance"
+            description: "We value sustainable productivity. Our team members have time for their families, hobbies, and personal growth."
+            img: "template.webp"
+            imageAlt: "Work-life balance"
+            checks:
+              - "Unlimited PTO"
+              - "Mental health days"
+              - "No weekend emails"
+              - "Generous parental leave"
+
+  - type: "CallToAction"
+    id: "careers"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      style:
+        variant: "gradient"
+        theme: "sunset"
+      content:
+        tagline: "Join Our Team"
+        title: "Help Us Build the Future"
+        subtitle: "We're always looking for talented people who share our passion for great products and user experiences."
+        primaryCta:
+          text: "View Open Positions"
+          href: "#open-positions"
+          target: "_self"
+        secondaryCta:
+          text: "Learn About Benefits"
+          href: "#benefits"
+          target: "_self"
+        note: "Competitive salary • Equity options • Remote-first"
+
+  - type: "Content"
+    id: "benefits"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Benefits & Perks"
+        subtitle: "We take care of our team"
+        blocks:
+          - title: "Compensation & Equity"
+            description: "Competitive salaries, equity in the company, and performance bonuses."
+            layout: "single-column"
+            features:
+              - title: "Market-Rate Salaries"
+                description: "We pay at or above market rates"
+              - title: "Stock Options"
+                description: "Share in the company's success"
+              - title: "Annual Bonuses"
+                description: "Performance-based rewards"
+
+          - title: "Health & Wellness"
+            description: "Comprehensive health coverage and wellness programs for you and your family."
+            layout: "single-column"
+            features:
+              - title: "Medical, Dental, Vision"
+                description: "100% coverage for employees"
+              - title: "Mental Health Support"
+                description: "Therapy and counseling services"
+              - title: "Wellness Stipend"
+                description: "$100/month for gym, yoga, etc."
+
+          - title: "Professional Development"
+            description: "We invest in your growth and career development."
+            layout: "single-column"
+            features:
+              - title: "Learning Budget"
+                description: "$2,000/year for courses and books"
+              - title: "Conference Tickets"
+                description: "Attend industry events"
+              - title: "Mentorship Program"
+                description: "Learn from experienced leaders"
+
+  - type: "ContentGrid"
+    id: "open-positions"
+    enabled: true
+    config:
+      layout:
+        spacing: "xl"
+      content:
+        title: "Open Positions"
+        subtitle: "Find your next opportunity"
+        items:
+          - title: "Senior Full-Stack Engineer"
+            description: "Join our engineering team building the core platform. 5+ years experience with TypeScript and modern web frameworks."
+            category: "Engineering"
+            link: "/careers/fullstack-engineer"
+            linkText: "Apply Now"
+
+          - title: "Product Designer"
+            description: "Shape the future of our product. Experience with Figma and user research required."
+            category: "Design"
+            link: "/careers/product-designer"
+            linkText: "Apply Now"
+
+          - title: "Developer Advocate"
+            description: "Help developers succeed with Luna Landing. Strong communication and technical skills required."
+            category: "DevRel"
+            link: "/careers/developer-advocate"
+            linkText: "Apply Now"
+
+          - title: "Content Marketing Manager"
+            description: "Create compelling content that educates and engages our audience. SEO and writing experience required."
+            category: "Marketing"
+            link: "/careers/content-manager"
+            linkText: "Apply Now"
+
+          - title: "Customer Success Manager"
+            description: "Help our enterprise customers succeed. SaaS experience and strong communication skills required."
+            category: "Customer Success"
+            link: "/careers/csm"
+            linkText: "Apply Now"
+
+          - title: "Backend Engineer"
+            description: "Build scalable APIs and infrastructure. Experience with Node.js and databases required."
+            category: "Engineering"
+            link: "/careers/backend-engineer"
+            linkText: "Apply Now"
+
+footer:
+  type: "Footer"
+  enabled: true
+  config:
+    content:
+      logo: "Luna Landing"
+      description: "Modern landing pages, simplified."
+      links:
+        - label: "Company"
+          href: "/company"
+        - label: "Careers"
+          href: "/company#careers"
+        - label: "About"
+          href: "/about"
+        - label: "Blog"
+          href: "/blog"
+        - label: "Contact"
+          href: "/contact"
+        - label: "Privacy"
+          href: "/privacy"
+      socials:
+        - icon: "GithubIcon"
+          href: "https://github.com"
+        - icon: "TwitterIcon"
+          href: "https://twitter.com"
+        - icon: "InstagramIcon"
+          href: "https://instagram.com"
