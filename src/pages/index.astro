@@ -1,27 +1,25 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Adventajes from "@/sections/Adventajes.astro";
-import Brands from "@/sections/Brands.astro";
-import Footer from "@/sections/Footer.astro";
-import Header from "@/sections/Header.astro";
-import Hero from "@/sections/Hero.astro";
-import Pricing from "@/sections/Pricing.astro";
-import Services from "@/sections/Services.astro";
-import { getLandingData } from "@/services/data.service";
+/**
+ * Home Page - YAML-Driven Configuration
+ *
+ * This page is now powered by YAML configuration from src/data/pages/home.yaml
+ * All content, layout, and component ordering is controlled through that YAML file.
+ *
+ * To customize this page:
+ * 1. Edit src/data/pages/home.yaml
+ * 2. Add/remove/reorder components in the YAML file
+ * 3. Modify component configurations and copy
+ * 4. Enable/disable components using the 'enabled' flag
+ */
 
-const data = await getLandingData();
+import Layout from "@/layouts/Layout.astro";
+import PageRenderer from "@/components/PageRenderer.astro";
+import { getPageData } from "@/services/page.service";
+
+// Load page data from YAML
+const pageData = await getPageData("home");
 ---
 
-<Layout meta={data.meta}>
-  <Header data={data.headerData} />
-  <main class="flex flex-col justify-center items-center">
-    <div class="w-3/4">
-      <Hero data={data.heroData} />
-      <Services data={data.servicesData} />
-      <Adventajes data={data.adventajesData} />
-      <Brands data={data.brandsData} />
-      <Pricing data={data.pricingData} />
-    </div>
-    <Footer data={data.footerData} />
-  </main>
+<Layout meta={pageData.meta}>
+  <PageRenderer pageData={pageData} />
 </Layout>

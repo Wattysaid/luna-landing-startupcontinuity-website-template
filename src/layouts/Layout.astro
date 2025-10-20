@@ -1,15 +1,16 @@
 ---
 import Background from "@/components/Background.astro";
 import type { Meta } from "@/config/landing.interface";
+import type { MetaConfig } from "@/config/page.interface";
 import "@fontsource-variable/rubik";
 
 interface Props {
-  meta: Meta;
+  meta: Meta | MetaConfig;
 }
 
 const { meta } = Astro.props;
 
-const ldJson = JSON.stringify(meta.ldJson);
+const ldJson = meta.ldJson ? JSON.stringify(meta.ldJson) : undefined;
 ---
 
 <!doctype html>
@@ -24,7 +25,7 @@ const ldJson = JSON.stringify(meta.ldJson);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={import.meta.env.SITE} />
-    <script type="application/ld+json" set:html={ldJson} />
+    {ldJson && <script type="application/ld+json" set:html={ldJson} />}
   </head>
   <body class="bg-white">
     <Background />

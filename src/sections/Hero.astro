@@ -5,13 +5,25 @@ interface Props {
   data: {
     title: string;
     subTitle: string;
-    primaryCta: string;
-    secondaryCta: string;
+    primaryCta: {
+      text: string;
+      href: string;
+      target?: string;
+    };
+    secondaryCta: {
+      text: string;
+      href: string;
+      target?: string;
+    };
     highlightedTitle?: string;
+    showScrollButton?: boolean;
+    scrollTarget?: string;
   };
 }
 
 const { data } = Astro.props;
+const showScroll = data.showScrollButton ?? true;
+const scrollTarget = data.scrollTarget || "#services-section";
 ---
 
 <section id="hero-section" class="flex justify-center mt-48 h-screen">
@@ -28,26 +40,27 @@ const { data } = Astro.props;
         as="a"
         type="button"
         class="bg-black text-white"
-        href="https://github.com/JimmyCamus/luna-landing"
-        target="_blank"
+        href={data.primaryCta.href}
+        target={data.primaryCta.target}
       >
-        {data.primaryCta}
+        {data.primaryCta.text}
       </Action>
       <Action
         as="a"
         class="bg-transparent text-black border border-black"
         type="button"
-        href="https://github.com/JimmyCamus/luna-landing"
-        target="_blank"
+        href={data.secondaryCta.href}
+        target={data.secondaryCta.target}
       >
-        {data.secondaryCta}
+        {data.secondaryCta.text}
       </Action>
     </div>
+    {showScroll && (
     <div class="flex justify-center">
       <Action
         as="a"
         class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
-        href="#services-section"
+        href={scrollTarget}
         title="arrow down icon"
       >
         <svg
@@ -65,6 +78,7 @@ const { data } = Astro.props;
         </svg>
       </Action>
     </div>
+    )}
   </div>
 </section>
 

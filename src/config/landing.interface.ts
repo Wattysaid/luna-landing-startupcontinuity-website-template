@@ -1,25 +1,16 @@
-export interface LandingPageData {
-  meta: Meta;
-  headerData: HeaderData;
-  heroData: HeroData;
-  servicesData: ServicesData;
-  adventajesData: AdventajesData;
-  brandsData: BrandsData;
-  pricingData: PricingData;
-  footerData: FooterData;
-}
+/**
+ * Legacy Component Data Interfaces
+ *
+ * These interfaces are still used by individual section components.
+ * They define the data structure that each component expects.
+ *
+ * Note: The new YAML system uses these interfaces within the component
+ * configurations defined in page.interface.ts
+ */
 
 export interface HeaderData {
   logo: string;
   links: Link[];
-}
-
-export interface HeroData {
-  title: string;
-  subTitle: string;
-  primaryCta: string;
-  secondaryCta: string;
-  highlightedTitle: string;
 }
 
 export interface ServicesData {
@@ -86,6 +77,7 @@ export interface Tier {
   price: Price;
   features: string[];
   cta: string;
+  ctaHref?: string;
 }
 
 export interface Price {

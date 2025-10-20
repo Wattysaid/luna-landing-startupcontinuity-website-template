@@ -1,0 +1,104 @@
+---
+/**
+ * PageRenderer Component
+ *
+ * Dynamically renders page components based on YAML configuration.
+ * This is the core component that enables YAML-driven page composition.
+ *
+ * Usage:
+ *   <PageRenderer pageData={data} />
+ */
+
+import type { PageData, PageComponent } from "@/config/page.interface";
+import { getComponent } from "@/config/component-registry";
+
+interface Props {
+  pageData: PageData;
+}
+
+const { pageData } = Astro.props;
+
+// Helper function to determine container width class
+function getContainerWidthClass(width?: string): string {
+  const widthMap: Record<string, string> = {
+    full: "w-full",
+    "3/4": "w-3/4",
+    "2/3": "w-2/3",
+    "1/2": "w-1/2",
+  };
+  return widthMap[width || "3/4"] || "w-3/4";
+}
+
+// Helper function to get spacing class
+function getSpacingClass(spacing?: string): string {
+  const spacingMap: Record<string, string> = {
+    none: "",
+    small: "gap-y-10",
+    medium: "gap-y-20",
+    large: "gap-y-28",
+    xl: "gap-y-48",
+  };
+  return spacingMap[spacing || "medium"] || "gap-y-20";
+}
+
+// Filter enabled components
+const enabledComponents = pageData.components.filter(
+  (comp) => comp.enabled !== false
+);
+
+// Get container width class
+const containerClass = getContainerWidthClass(pageData.layout?.containerWidth);
+---
+
+<div class="flex flex-col justify-center items-center">
+  <!-- Render Header if present -->
+  {
+    pageData.header && pageData.header.enabled !== false && (
+      <div class="w-full">
+        {(() => {
+          const HeaderComponent = getComponent(pageData.header.type);
+          return <HeaderComponent data={pageData.header.config.content as any} />;
+        })()}
+      </div>
+    )
+  }
+
+  <!-- Main Content Container -->
+  <main class={`flex flex-col ${containerClass}`}>
+    {
+      enabledComponents.map((component: PageComponent, index: number) => {
+        // Get the component from registry
+        const Component = getComponent(component.type);
+
+        // Apply layout spacing if configured
+        const layoutClass = component.config.layout?.spacing
+          ? getSpacingClass(component.config.layout.spacing)
+          : "";
+
+        // Render the component with proper data structure
+        // Each section expects a 'data' prop with its specific content
+        return (
+          <div
+            class={layoutClass}
+            id={component.id || `component-${index}`}
+            data-component-type={component.type}
+          >
+            <Component data={component.config.content as any} />
+          </div>
+        );
+      })
+    }
+  </main>
+
+  <!-- Render Footer if present -->
+  {
+    pageData.footer && pageData.footer.enabled !== false && (
+      <div class="w-full">
+        {(() => {
+          const FooterComponent = getComponent(pageData.footer.type);
+          return <FooterComponent data={pageData.footer.config.content as any} />;
+        })()}
+      </div>
+    )
+  }
+</div>
